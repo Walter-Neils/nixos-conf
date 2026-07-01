@@ -33,10 +33,16 @@
   services.logind.settings.Login.HandleLidSwitchDocked = "suspend";
 
   boot.loader = {
-    grub.device = "nodev";
-    grub.enable = true;
-    efi.canTouchEfiVariables = false;
-    efi.efiSysMountPoint = "/boot";
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";   # wherever your ESP is mounted
+    };
+
+    grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+    };
   };
 
   services.chrony.enable = true;
