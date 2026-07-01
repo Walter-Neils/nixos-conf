@@ -32,7 +32,7 @@
       };
     in
     {
-      nixosConfigurations."NCC-1701-D" = nixpkgs.lib.nixosSystem {
+      nixosConfigurations."NCC-1701-C" = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs nixpkgs nixpkgs-unstable; };
         modules = [
           ./configuration.nix

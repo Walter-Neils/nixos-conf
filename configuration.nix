@@ -47,7 +47,7 @@
 
   boot.tmp.cleanOnBoot = true;
 
-  networking.hostName = "NCC-1701-D";
+  networking.hostName = "NCC-1701-C";
 
   networking.networkmanager.enable = true;
 
