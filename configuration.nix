@@ -96,6 +96,7 @@
     unstable.neovim
     tmux
     wget
+    inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   programs.mtr.enable = true;
