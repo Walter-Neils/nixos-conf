@@ -1,26 +1,26 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     hyprland.url = "github:hyprwm/Hyprland?ref=v0.55.4";
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
-      inputs.nixpkgs.follows = "unstable";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
   outputs =
     inputs@{
       nixpkgs,
-      unstable,
+      nixpkgs-unstable,
       nixos-hardware,
       ...
     }:
     let
       system = "x86_64-linux";
       overlay-unstable = final: prev: {
-        unstable = import unstable {
+        unstable = import nixpkgs-unstable {
           inherit system;
           config = {
             allowUnfree = true;
@@ -32,8 +32,8 @@
       };
     in
     {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs nixpkgs unstable; };
+      nixosConfigurations."NCC-1701-D" = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs nixpkgs nixpkgs-unstable; };
         modules = [
           ./configuration.nix
           {
@@ -41,7 +41,7 @@
               channel.enable = false;
               registry = {
                 nixpkgs.flake = nixpkgs;
-                unstable.flake = unstable;
+                unstable.flake = nixpkgs-unstable;
                 nixos-hardware.flake = nixos-hardware;
               };
             };
@@ -53,7 +53,7 @@
 
             nix.nixPath = [
               "nixpkgs=${nixpkgs.outPath}"
-              "unstable=${unstable.outPath}"
+              "unstable=${nixpkgs-unstable.outPath}"
             ];
 
             nix.settings = {
