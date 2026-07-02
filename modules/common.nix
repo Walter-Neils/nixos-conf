@@ -15,6 +15,7 @@
     ./programs/flatpak.nix
     ./programs/caelestia.nix
     ./programs/docker.nix
+    ./programs/hyprland.nix
   ];
 
   nix.settings.experimental-features = [
@@ -48,6 +49,12 @@
       device = "nodev";
       efiSupport = true;
     };
+  };
+
+
+  hardware.graphics = {
+      enable = true;
+      enable32Bit = true;
   };
 
   services.chrony.enable = true;
@@ -88,17 +95,8 @@
 
   programs.git.enable = true;
 
-  # TODO: Why is this here? This is host specific.
-
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  };
-
   programs.firefox.enable = true;
+
   programs.steam.enable = true;
 
   environment.systemPackages = with pkgs; [
