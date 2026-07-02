@@ -12,8 +12,9 @@
 
 {
   imports = [
-    ./flatpak.nix
-    ./caelestia.nix
+    ./programs/flatpak.nix
+    ./programs/caelestia.nix
+    ./programs/docker.nix
   ];
 
   nix.settings.experimental-features = [
