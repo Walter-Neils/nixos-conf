@@ -42,7 +42,7 @@
           name = host.name;
           value = nixpkgs.lib.nixosSystem {
             inherit system;
-            specialArgs = { inherit nixpkgs-unstable; };
+            specialArgs = { inherit inputs nixpkgs nixpkgs-unstable; };
             modules = [
               ./modules/common.nix
               ./hosts/${host.name}/configuration.nix
