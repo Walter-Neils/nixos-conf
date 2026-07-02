@@ -87,6 +87,7 @@
 
   programs.git.enable = true;
 
+  # TODO: Why is this here? This is host specific.
   hardware.graphics = {
     enable = true;
     package = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.mesa;

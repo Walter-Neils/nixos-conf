@@ -13,6 +13,7 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+
   fileSystems."/" =
     { device = "/dev/mapper/root_vg-nixroot";
       fsType = "btrfs";
