@@ -18,6 +18,17 @@
       fsType = "btrfs";
     };
 
+  fileSystems."/home" = 
+    { device = "/dev/mapper/root_vg-nixhome";
+      fsType = "btrfs";
+    };
+
+  fileSystems."/boot" = {
+  	device = "/dev/nvme0n1p1";
+	fsType = "vfat";
+	options = [ "fmask=0022" "dmask=0022" ];
+  }
+
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
