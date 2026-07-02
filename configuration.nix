@@ -115,6 +115,7 @@
 
   environment.systemPackages = with pkgs; [
     unstable.neovim
+    unstable.kitty
     tmux
     wget
     inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
