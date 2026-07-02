@@ -7,8 +7,9 @@
 }:
 {
   hardware.graphics = {
-      package = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.mesa;
-      package32 = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.pkgsi686Linux.mesa;
+    package = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.mesa;
+    package32 =
+      inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.pkgsi686Linux.mesa;
   };
   programs.hyprland = {
     enable = true;
@@ -18,8 +19,7 @@
       inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
-
-system.userActivationScripts = {
+  system.userActivationScripts = {
     updateHyprlandLuarc.text = ''
       LUARC_PATH="$XDG_CONFIG_HOME/hypr/.luarc.json"
       STUB_PATH="${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/share/hypr/stubs"

@@ -8,5 +8,5 @@
 
 {
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.open = true;  # see the note above
+  hardware.nvidia.open = true; # see the note above
 }
