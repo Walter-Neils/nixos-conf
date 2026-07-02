@@ -124,6 +124,12 @@
     tmux
     wget
     inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
+    eza
+    fastfetch
+    starship
+    direnv
+    duf
+    bat
   ];
 
   programs.mtr.enable = true;
