@@ -12,9 +12,7 @@
 
 {
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    ./modules/flatpak.nix
+    ./flatpak.nix
   ];
 
   nix.settings.experimental-features = [
@@ -37,13 +35,10 @@
 
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
-  services.logind.settings.Login.HandleLidSwitch = "suspend";
-  services.logind.settings.Login.HandleLidSwitchDocked = "suspend";
-
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";   # wherever your ESP is mounted
+      efiSysMountPoint = "/boot";
     };
 
     grub = {
@@ -60,8 +55,6 @@
   services.resolved.enable = true;
 
   boot.tmp.cleanOnBoot = true;
-
-  networking.hostName = "NCC-1701-C";
 
   networking.networkmanager.enable = true;
 
@@ -168,7 +161,4 @@
 
   services.openssh.enable = true;
   services.tailscale.enable = true;
-
-  # DO NOT CHANGE THIS. For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion
-  system.stateVersion = "26.11"; # Did you read the comment?
 }

@@ -30,39 +30,53 @@
       overlay-stable = final: prev: {
         stable = nixpkgs.legacyPackages.${prev.system};
       };
+
+      hosts = [
+        { name = "NCC-1701-C"; }
+        { name = "NCC-1701-D"; }
+      ];
     in
     {
-      nixosConfigurations."NCC-1701-C" = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs nixpkgs nixpkgs-unstable; };
-        modules = [
-          ./configuration.nix
-          {
-            nix = {
-              channel.enable = false;
-              registry = {
-                nixpkgs.flake = nixpkgs;
-                unstable.flake = nixpkgs-unstable;
-                nixos-hardware.flake = nixos-hardware;
-              };
-            };
+      nixosConfigurations = builtins.listToAttrs (
+        map (host: {
+          name = host.name;
+          value = nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = { inherit nixpkgs-unstable; };
+            modules = [
+              ./modules/common.nix
+              ./hosts/${host.name}/configuration.nix
+              {
+                networking.hostName = host.name;
+                nix = {
+                  channel.enable = false;
+                  registry = {
+                    nixpkgs.flake = nixpkgs;
+                    unstable.flake = nixpkgs-unstable;
+                    nixos-hardware.flake = nixos-hardware;
+                  };
+                };
 
-            nixpkgs.overlays = [
-              overlay-stable
-              overlay-unstable
+                nixpkgs.overlays = [
+                  overlay-stable
+                  overlay-unstable
+                ];
+
+                nix.nixPath = [
+                  "nixpkgs=${nixpkgs.outPath}"
+                  "unstable=${nixpkgs-unstable.outPath}"
+                ];
+
+                nix.settings = {
+                  substituters = [ "https://hyprland.cachix.org" ];
+                  trusted-substituters = [ "https://hyprland.cachix.org" ];
+                  trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+                };
+              }
             ];
+          };
+        }) hosts
+      );
 
-            nix.nixPath = [
-              "nixpkgs=${nixpkgs.outPath}"
-              "unstable=${nixpkgs-unstable.outPath}"
-            ];
-
-            nix.settings = {
-              substituters = [ "https://hyprland.cachix.org" ];
-              trusted-substituters = [ "https://hyprland.cachix.org" ];
-              trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
-            };
-          }
-        ];
-      };
     };
 }
