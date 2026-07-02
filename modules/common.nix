@@ -124,6 +124,7 @@
     direnv
     duf
     bat
+    power-profiles-daemon
   ];
 
   programs.mtr.enable = true;
