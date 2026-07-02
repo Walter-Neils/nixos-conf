@@ -86,6 +86,8 @@
     shell = pkgs.unstable.fish;
   };
 
+  programs.fish.enable = true;
+
   hardware.graphics = {
     enable = true;
     package = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.mesa;
