@@ -130,6 +130,27 @@
   };
   networking.firewall.enable = false;
 
+  environment.sessionVariables = {
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_CACHE_HOME = "$HOME/.cache";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
+
+    PATH = [
+      "$HOME/.npm-global/bin"
+      "$XDG_DATA_HOME/pnpm/bin"
+      "$HOME/.deno/bin"
+      "$HOME/go/bin"
+      "$HOME/.cargo/bin"
+    ];
+
+    EDITOR = "nvim";
+    NIXOS_OZONE_WL = "1";
+    LIBVA_DRIVER_NAME = "iHD";
+  };
+
+  environment.localBinInPath = true;
+
   services.openssh.enable = true;
   services.tailscale.enable = true;
 
