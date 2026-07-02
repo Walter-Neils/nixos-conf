@@ -9,6 +9,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/graphics/intel.nix
+    ../../modules/graphics/nvidia.nix
   ];
 
   # Commit test
