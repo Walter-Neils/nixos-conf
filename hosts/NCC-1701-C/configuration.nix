@@ -8,6 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/graphics/intel.nix
   ];
 
   services.logind.settings.Login.HandleLidSwitch = "suspend";
