@@ -13,6 +13,7 @@
 {
   imports = [
     ./flatpak.nix
+    ./caelestia.nix
   ];
 
   nix.settings.experimental-features = [
@@ -117,13 +118,6 @@
     unstable.kitty
     tmux
     wget
-    (inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (oldAttrs: {
-      nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ pkgs.makeWrapper ];
-      postInstall = (oldAttrs.postInstall or "") + ''
-        wrapProgram $out/bin/caelestia-shell \
-          --prefix PATH : ${lib.makeBinPath [ pkgs.power-profiles-daemon ]}
-      '';
-    }))
     eza
     fastfetch
     starship
