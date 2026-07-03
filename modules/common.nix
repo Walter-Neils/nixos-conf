@@ -146,7 +146,6 @@
   };
 
   environment.localBinInPath = true;
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   services.openssh.enable = true;
   services.tailscale.enable = true;
