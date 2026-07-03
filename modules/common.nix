@@ -87,6 +87,7 @@
       "docker"
       "podman"
       "dialout"
+      "uinput"
     ];
     shell = pkgs.unstable.fish;
   };
