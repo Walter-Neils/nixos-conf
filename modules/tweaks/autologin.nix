@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }:
-    let
-        start_hyprland = "${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/bin/start-hyprland";
+let
+    start_hyprland = "${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/bin/start-hyprland";
+in
 {
 
   # 2. Configure greetd for autologin
