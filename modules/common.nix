@@ -112,6 +112,11 @@
     duf
     bat
     power-profiles-daemon
+    ripgrep
+    moonlight-qt
+    lutris
+    wine
+    steam
   ];
 
   programs.mtr.enable = true;
