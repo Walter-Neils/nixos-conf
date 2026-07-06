@@ -118,6 +118,7 @@
     wine
     steam
     r2modman
+    gh
   ];
 
   programs.mtr.enable = true;
