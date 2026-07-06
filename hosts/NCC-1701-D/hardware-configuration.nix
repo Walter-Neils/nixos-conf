@@ -22,9 +22,11 @@
     "usbhid"
     "usb_storage"
     "uas"
+    "dm_cache"
+    "dm_cache_smq"
   ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.initrd.kernelModules = [ "dm-snapshot" "dm_cache" "dm_cache_smq" ];
+  boot.kernelModules = [ "kvm-amd" "dm_cache" "dm_cache_smq" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
