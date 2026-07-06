@@ -117,6 +117,7 @@
     lutris
     wine
     steam
+    r2modman
   ];
 
   programs.mtr.enable = true;
