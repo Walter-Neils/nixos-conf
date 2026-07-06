@@ -49,8 +49,8 @@
   fileSystems."/mnt/bulkgames" = {
     device = "/dev/mapper/bulkgames-games";
     fsType = "btrfs";
-    options = ["nossd" "space_cache=v2" "compress=zstd:3" "autodefrag" "noatime" "nofail"]
-  }
+    options = ["nossd" "space_cache=v2" "compress=zstd:3" "autodefrag" "noatime" "nofail"];
+  };
 
   swapDevices = [ ];
 
