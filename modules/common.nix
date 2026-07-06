@@ -119,6 +119,7 @@
     steam
     r2modman
     gh
+    zenity
   ];
 
   programs.mtr.enable = true;
