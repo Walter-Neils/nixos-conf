@@ -46,6 +46,12 @@
     ];
   };
 
+  fileSystems."/mnt/bulkgames" = {
+    device = "/dev/mapper/bulkgames-games";
+    fsType = "btrfs";
+    options = ["nossd" "space_cache=v2" "compress=zstd:3" "autodefrag" "noatime" "nofail"]
+  }
+
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
