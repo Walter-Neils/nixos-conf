@@ -120,6 +120,8 @@
     r2modman
     gh
     zenity
+    slurp
+    grim
   ];
 
   programs.mtr.enable = true;
