@@ -16,6 +16,7 @@
     ./programs/caelestia.nix
     ./programs/docker.nix
     ./programs/hyprland.nix
+    ./programs/fwupd.nix
   ];
 
   nix.settings.experimental-features = [
