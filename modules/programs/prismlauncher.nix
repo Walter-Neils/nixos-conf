@@ -6,13 +6,7 @@
   ...
 }:
 {
-  imports = [
-    ../programs/steam.nix
-  ];
-
   environment.systemPackages = with pkgs; [
-    lutris
-    r2modman
     prismlauncher
   ];
 }
