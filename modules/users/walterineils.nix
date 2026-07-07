@@ -21,5 +21,5 @@
     ];
     shell = pkgs.unstable.fish;
   };
-  config.win.autologin.user = lib.mkDefault "walterineils";
+  win.autologin.user = lib.mkDefault "walterineils";
 }

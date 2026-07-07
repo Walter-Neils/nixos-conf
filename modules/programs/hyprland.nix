@@ -6,9 +6,6 @@
   ...
 }:
 {
-  imports = [
-    ../custom-options/autologin.nix
-  ];
   environment.systemPackages = with pkgs; [
     slurp
     grim
@@ -40,5 +37,5 @@
     '';
   };
 
-  config.win.autologin.command = lib.mkDefault "${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/bin/start-hyprland";
+  win.autologin.command = lib.mkDefault "${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/bin/start-hyprland";
 }
