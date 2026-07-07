@@ -1,5 +1,5 @@
 
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, ... }:
 {
   options = {
     win = {
@@ -12,7 +12,7 @@
                 type = lib.types.str;
                 description = "A command which starts a session";
             };
-        }
+        };
     };
   };
 }
