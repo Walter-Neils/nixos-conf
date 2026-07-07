@@ -16,7 +16,5 @@
     r2modman
   ];
 
-
   programs.steam.enable = true;
-
 }

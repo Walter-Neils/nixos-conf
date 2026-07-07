@@ -6,7 +6,7 @@
   ...
 }:
 {
-    imports = [
-      ./autologin.nix
-    ];
+  imports = [
+    ./autologin.nix
+  ];
 }

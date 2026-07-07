@@ -6,10 +6,10 @@
   ...
 }:
 {
-    services.sunshine = {
-        enable = true;
-        autoStart = true;
-        capSysAdmin = true; # Wayland support
-        openFirewall = true;
-    };
+  services.sunshine = {
+    enable = true;
+    autoStart = true;
+    capSysAdmin = true; # Wayland support
+    openFirewall = true;
+  };
 }

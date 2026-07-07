@@ -25,8 +25,16 @@
     "dm_cache"
     "dm_cache_smq"
   ];
-  boot.initrd.kernelModules = [ "dm-snapshot" "dm_cache" "dm_cache_smq" ];
-  boot.kernelModules = [ "kvm-amd" "dm_cache" "dm_cache_smq" ];
+  boot.initrd.kernelModules = [
+    "dm-snapshot"
+    "dm_cache"
+    "dm_cache_smq"
+  ];
+  boot.kernelModules = [
+    "kvm-amd"
+    "dm_cache"
+    "dm_cache_smq"
+  ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
@@ -51,7 +59,14 @@
   fileSystems."/mnt/bulkgames" = {
     device = "/dev/mapper/bulkgames-games";
     fsType = "btrfs";
-    options = ["nossd" "space_cache=v2" "compress=zstd:3" "autodefrag" "noatime" "nofail"];
+    options = [
+      "nossd"
+      "space_cache=v2"
+      "compress=zstd:3"
+      "autodefrag"
+      "noatime"
+      "nofail"
+    ];
   };
 
   swapDevices = [ ];
