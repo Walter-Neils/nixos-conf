@@ -15,8 +15,6 @@ let
   );
 in
 {
-  services.power-profiles-daemon.enable = true;
-
   environment.systemPackages = [
     caelestia-shell
   ];
