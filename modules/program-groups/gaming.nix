@@ -11,6 +11,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    steam
     lutris
     r2modman
   ];

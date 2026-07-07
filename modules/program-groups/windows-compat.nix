@@ -7,7 +7,7 @@
 }:
 {
   imports = [
-    ../programs/
+    ../programs/wine.nix
   ];
 
   environment.systemPackages = with pkgs; [
