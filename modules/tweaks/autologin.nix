@@ -1,22 +1,29 @@
 { pkgs, inputs, ... }:
-let
-    start_hyprland = "${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/bin/start-hyprland";
-in
 {
-
-  # 2. Configure greetd for autologin
-  services.greetd = {
-    enable = true;
-    settings = {
-      initial_session = {
-        command = "${start_hyprland}";
-        user = "walterineils";
-      };
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${start_hyprland}";
-        user = "greeter";
-      };
+  options = {
+    services.greetd.autologinUser = lib.mkOption {
+      type = lib.types.str;
+      description = "The user that should automatically be logged in.";
+    };
+    services.greetd.autoSessionCommand = lib.mkOption {
+      type = lib.types.str;
+      description = "A command which starts a session";
     };
   };
 
+  config = {
+   services.greetd = {
+     enable = true;
+     settings = {
+       initial_session = {
+         command = config.services.greetd.autoSessionCommand;
+         user = config.services.greetd.autologinUser;
+       };
+       default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${config.services.greetd.autoSessionCommand}";
+        user = "greeter";
+       };
+     }
+   }
+  };
 }

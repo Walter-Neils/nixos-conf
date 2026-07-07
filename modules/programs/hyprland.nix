@@ -36,4 +36,6 @@
       ' "$LUARC_PATH")" > "$LUARC_PATH"
     '';
   };
+
+  services.greetd.autoSessionCommand = lib.mkDefault "${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/bin/start-hyprland";
 }

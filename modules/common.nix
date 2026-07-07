@@ -76,22 +76,6 @@
     pulse.enable = true;
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.walterineils = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "audio"
-      "networkmanager"
-      "sudo"
-      "docker"
-      "podman"
-      "dialout"
-      "uinput"
-    ];
-    shell = pkgs.unstable.fish;
-  };
-
   programs.fish.enable = true;
 
   programs.git.enable = true;

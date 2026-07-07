@@ -7,6 +7,7 @@
 }:
 {
   imports = [
+    ../../modules/users/walterineils.nix
     ./hardware-configuration.nix
     ../../modules/graphics/intel.nix
     ../../modules/graphics/nvidia.nix
