@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
     slurp
     grim
+    hyprpolkitagent
   ];
   hardware.graphics = {
     package = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.mesa;
