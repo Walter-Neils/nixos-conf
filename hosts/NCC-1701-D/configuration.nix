@@ -15,6 +15,8 @@
     ../../modules/program-groups/windows-compat.nix
     ../../modules/program-groups/pro-audio.nix
     ../../modules/programs/tailscale.nix
+    ../../modules/programs/spotify.nix
+    ../../modules/programs/tidal.nix
   ];
 
   # DO NOT CHANGE THIS. For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion
