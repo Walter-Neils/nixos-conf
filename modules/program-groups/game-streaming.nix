@@ -8,5 +8,6 @@
 {
   imports = [
     ../programs/sunshine.nix
+    ../programs/moonlight.nix
   ];
 }
