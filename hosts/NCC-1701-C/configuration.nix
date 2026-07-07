@@ -18,6 +18,7 @@
     ../../modules/programs/tailscale.nix
     ../../modules/programs/spotify.nix
     ../../modules/programs/tidal.nix
+    ../../modules/programs/qalculate.nix
     ../../modules/tweaks/fingerprint-sudo.nix
   ];
 
