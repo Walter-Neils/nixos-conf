@@ -44,6 +44,7 @@
             inherit system;
             specialArgs = { inherit inputs nixpkgs nixpkgs-unstable; };
             modules = [
+              ./modules/custom-options/all.nix
               ./modules/common.nix
               ./hosts/${host.name}/configuration.nix
               {
