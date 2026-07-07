@@ -120,6 +120,9 @@
     r2modman
     gh
     spotify
+    zenity
+    slurp
+    grim
   ];
 
   programs.mtr.enable = true;
