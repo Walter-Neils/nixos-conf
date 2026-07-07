@@ -13,6 +13,7 @@
     ../../modules/program-groups/game-streaming.nix
     ../../modules/program-groups/gaming.nix
     ../../modules/program-groups/windows-compat.nix
+    ../../modules/programs/tailscale.nix
   ];
 
   # Commit test
