@@ -10,6 +10,9 @@
     ./hardware-configuration.nix
     ../../modules/graphics/intel.nix
     ../../modules/graphics/nvidia.nix
+    ../../modules/program-groups/game-streaming.nix
+    ../../modules/program-groups/gaming.nix
+    ../../modules/program-groups/windows-compat.nix
   ];
 
   # Commit test

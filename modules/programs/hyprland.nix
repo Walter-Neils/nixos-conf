@@ -6,6 +6,10 @@
   ...
 }:
 {
+  environment.systemPackages = with pkgs; [
+    slurp
+    grim
+  ];
   hardware.graphics = {
     package = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.mesa;
     package32 =

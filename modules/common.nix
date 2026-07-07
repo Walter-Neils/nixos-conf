@@ -98,7 +98,6 @@
 
   programs.firefox.enable = true;
 
-  programs.steam.enable = true;
 
   environment.systemPackages = with pkgs; [
     unstable.neovim
@@ -113,15 +112,9 @@
     bat
     power-profiles-daemon
     ripgrep
-    moonlight-qt
-    lutris
     wine
-    steam
-    r2modman
     gh
     zenity
-    slurp
-    grim
   ];
 
   programs.mtr.enable = true;
@@ -158,7 +151,6 @@
   environment.localBinInPath = true;
 
   services.openssh.enable = true;
-  services.tailscale.enable = true;
 
   nix.gc = {
     automatic = true;
