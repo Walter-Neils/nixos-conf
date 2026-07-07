@@ -37,5 +37,5 @@
     '';
   };
 
-  services.greetd.autoSessionCommand = lib.mkDefault "${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/bin/start-hyprland";
+  services.greetd.autoLoginCommand = lib.mkDefault "${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/bin/start-hyprland";
 }
