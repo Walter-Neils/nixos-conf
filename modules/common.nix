@@ -119,6 +119,7 @@
     steam
     r2modman
     gh
+    spotify
   ];
 
   programs.mtr.enable = true;
