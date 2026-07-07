@@ -6,5 +6,6 @@
   ...
 }:
 {
+  # Enroll fingerprints with fprintd-enroll $USER
   services.fprintd.enable = true;
 }
