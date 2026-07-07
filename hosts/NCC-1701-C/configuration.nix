@@ -14,6 +14,7 @@
     ../../modules/program-groups/game-streaming.nix
     ../../modules/program-groups/gaming.nix
     ../../modules/program-groups/windows-compat.nix
+    ../../modules/program-groups/pro-audio.nix
     ../../modules/programs/tailscale.nix
   ];
 
