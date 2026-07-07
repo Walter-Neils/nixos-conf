@@ -3,6 +3,7 @@
   lib,
   pkgs,
   inputs,
+  options,
   ...
 }:
 {
@@ -20,5 +21,5 @@
     ];
     shell = pkgs.unstable.fish;
   };
-  services.greetd.autologinUser = lib.mkDefault "walterineils";
+  config.win.autologin.user = lib.mkDefault "walterineils";
 }

@@ -6,6 +6,9 @@
   ...
 }:
 {
+  imports = [
+    ../custom-options/autologin.nix
+  ];
   environment.systemPackages = with pkgs; [
     slurp
     grim
