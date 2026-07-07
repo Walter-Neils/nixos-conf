@@ -8,11 +8,8 @@
 {
   imports = [
     ../programs/steam.nix
-  ];
-
-  environment.systemPackages = with pkgs; [
-    lutris
-    r2modman
-    prismlauncher
+    ../programs/prismlauncher.nix
+    ../programs/lutris.nix
+    ../programs/r2modman.nix
   ];
 }
