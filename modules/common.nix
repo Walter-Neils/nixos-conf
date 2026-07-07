@@ -114,6 +114,7 @@
     ripgrep
     wine
     gh
+    spotify
     zenity
   ];
 
