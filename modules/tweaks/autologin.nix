@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 {
   options = {
-    services.autologin = {
+    services.greetd = {
         autologinUser = lib.mkOption {
             type = lib.types.str;
             description = "The user that should automatically be logged in.";
@@ -18,14 +18,14 @@
      enable = true;
      settings = {
        initial_session = {
-         command = config.services.autologin.autologinCommand;
-         user = config.services.autologin.autologinUser;
+         command = config.services.greetd.autologinCommand;
+         user = config.services.greetd.autologinUser;
        };
        default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${config.services.autologin.autologinCommand}";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${config.services.greetd.autologinCommand}";
         user = "greeter";
        };
-     }
-   }
+     };
+   };
   };
 }
