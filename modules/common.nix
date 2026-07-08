@@ -14,6 +14,7 @@
   imports = [
     ./programs/flatpak.nix
     ./programs/fwupd.nix
+    ./config/firewall.nix
   ];
 
   nix.settings.experimental-features = [
@@ -55,7 +56,6 @@
     enable = true;
     enable32Bit = true;
   };
-
 
   services.power-profiles-daemon.enable = true;
 
@@ -108,12 +108,6 @@
     enable = true;
     enableSSHSupport = true;
   };
-
-  networking.firewall = {
-    allowedTCPPorts = [ ];
-    allowedUDPPorts = [ ];
-  };
-  networking.firewall.enable = false;
 
   environment.sessionVariables = {
     XDG_CONFIG_HOME = "$HOME/.config";

@@ -6,7 +6,7 @@
   ...
 }:
 {
-  imports = [ 
+  imports = [
     ./caelestia.nix
     ./wl-clipboard.nix
   ];
