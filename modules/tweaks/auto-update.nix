@@ -16,8 +16,9 @@
       Type = "oneshot";
       ExecStart = "${pkgs.writeShellScript "my-boot-script" ''
       #!/usr/bin/env bash
+      sleep 30
       HOSTNAME=$(cat /etc/hostname)
-      nixos-rebuild switch --refresh --flake github:Walter-Neils/nixos-conf#$HOSTNAME
+      nixos-rebuild boot --refresh --flake github:Walter-Neils/nixos-conf#$HOSTNAME
     ''}";
     };
   };
