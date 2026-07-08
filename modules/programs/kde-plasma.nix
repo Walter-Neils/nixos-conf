@@ -6,6 +6,7 @@
   ...
 }:
 {
+    imports = [./wl-clipboard.nix];
     services = {
         desktopManager.plasma6.enable = true;
     };

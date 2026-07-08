@@ -8,6 +8,7 @@
 {
   imports = [ 
     ./caelestia.nix
+    ./wl-clipboard.nix
   ];
   environment.systemPackages = with pkgs; [
     slurp
