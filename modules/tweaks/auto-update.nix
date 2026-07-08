@@ -5,6 +5,13 @@
     after = ["network.target"];
     wantedBy = ["multi-user.target"];
 
+    path = with pkgs; [ 
+      nixos-rebuild 
+      nix           # Needed by nixos-rebuild
+      git           # Needed to fetch github: flakes
+      openssh       # Needed if your github fetch uses SSH keys
+    ];
+
     serviceConfig = {
       Type = "oneshot";
       ExecStart = "${pkgs.writeShellScript "my-boot-script" ''
