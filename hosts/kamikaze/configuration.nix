@@ -11,6 +11,7 @@
     ../../modules/users/kamikaze.nix
     ./hardware-configuration.nix
     ../../modules/tweaks/autologin.nix
+    ../../modules/tweaks/auto-update.nix
     ../../modules/program-groups/gaming.nix
     ../../modules/program-groups/windows-compat.nix
     ../../modules/program-groups/pro-audio.nix

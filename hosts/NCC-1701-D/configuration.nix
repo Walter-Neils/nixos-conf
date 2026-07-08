@@ -10,6 +10,7 @@
     ../../modules/users/walterineils.nix
     ./hardware-configuration.nix
     ../../modules/tweaks/autologin.nix
+    ../../modules/tweaks/auto-update.nix
     ../../modules/program-groups/game-streaming.nix
     ../../modules/program-groups/gaming.nix
     ../../modules/program-groups/windows-compat.nix

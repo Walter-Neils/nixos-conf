@@ -22,6 +22,7 @@
     ../../modules/programs/tidal.nix
     ../../modules/programs/qalculate.nix
     ../../modules/tweaks/fingerprint-sudo.nix
+    ../../modules/tweaks/auto-update.nix
   ];
 
   # Commit test
