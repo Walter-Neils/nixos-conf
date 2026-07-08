@@ -17,6 +17,9 @@
     user = "qbittorrent";
   };
 
+  # Required, not sure why
+  networking.firewall.checkReversePath = "loose";
+
   networking.firewall = {
     enable = true;
 
