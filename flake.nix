@@ -34,6 +34,7 @@
       hosts = [
         { name = "NCC-1701-C"; }
         { name = "NCC-1701-D"; }
+        { name = "kamikaze"; }
       ];
     in
     {
