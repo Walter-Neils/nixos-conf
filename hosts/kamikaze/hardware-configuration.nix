@@ -21,7 +21,7 @@
 
   fileSystems."/boot" = 
     { device = "/dev/nvme1n1p1";
-      fsType = "fat32"
+      fsType = "fat32";
     };
 
   swapDevices = [ ];
