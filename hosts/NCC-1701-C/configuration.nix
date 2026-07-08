@@ -17,6 +17,7 @@
     ../../modules/program-groups/gaming.nix
     ../../modules/program-groups/windows-compat.nix
     ../../modules/program-groups/pro-audio.nix
+    ../../modules/program-groups/development.nix
     ../../modules/programs/tailscale.nix
     ../../modules/programs/spotify.nix
     ../../modules/programs/tidal.nix
