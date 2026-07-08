@@ -7,6 +7,7 @@
 }:
 {
   imports = [
+    ../tweaks/star-citizen.nix
     ../programs/steam.nix
     ../programs/prismlauncher.nix
     ../programs/lutris.nix
