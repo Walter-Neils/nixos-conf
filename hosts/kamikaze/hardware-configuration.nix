@@ -20,11 +20,12 @@
     };
 
   fileSystems."/boot" = 
-    { device = "/dev/nvme0n1p1";
+    { device = "/dev/disk/by-id/nvme-Samsung_SSD_990_PRO_2TB_S7KHNU0Y807993J_1-part1";
       fsType = "vfat";
       options = [
         "fmask=0022"
         "dmask=0022"
+	"nofail"
       ];
     };
 
