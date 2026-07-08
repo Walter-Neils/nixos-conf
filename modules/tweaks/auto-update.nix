@@ -12,6 +12,6 @@
       HOSTNAME=$(cat /etc/hostname)
       nixos-rebuild switch --refresh --flake github:Walter-Neils/nixos-conf#$HOSTNAME
     ''}";
-    }
+    };
   };
 }
