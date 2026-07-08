@@ -12,5 +12,6 @@
     ../programs/prismlauncher.nix
     ../programs/lutris.nix
     ../programs/r2modman.nix
+    ../programs/protonup-qt.nix
   ];
 }
