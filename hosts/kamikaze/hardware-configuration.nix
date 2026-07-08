@@ -19,6 +19,11 @@
       fsType = "btrfs";
     };
 
+  fileSystems."/boot" = 
+    { device = "/dev/nvme1n1p1";
+      fsType = "fat32"
+    };
+
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
