@@ -13,9 +13,6 @@
 {
   imports = [
     ./programs/flatpak.nix
-    ./programs/caelestia.nix
-    ./programs/docker.nix
-    ./programs/hyprland.nix
     ./programs/fwupd.nix
   ];
 

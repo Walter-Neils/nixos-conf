@@ -6,6 +6,9 @@
   ...
 }:
 {
+  imports = [ 
+    ./caelestia.nix
+  ];
   environment.systemPackages = with pkgs; [
     slurp
     grim
