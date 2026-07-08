@@ -21,7 +21,11 @@
 
   fileSystems."/boot" = 
     { device = "/dev/nvme1n1p1";
-      fsType = "fat32";
+      fsType = "vfat";
+      options = [
+        "fmask=0022"
+        "dmask=0022"
+      ];
     };
 
   swapDevices = [ ];
