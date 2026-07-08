@@ -22,6 +22,7 @@
     ../../modules/programs/spotify.nix
     ../../modules/programs/tidal.nix
     ../../modules/programs/qalculate.nix
+    ../../modules/programs/qbittorrent.nix
     ../../modules/tweaks/fingerprint-sudo.nix
     ../../modules/tweaks/auto-update.nix
   ];
