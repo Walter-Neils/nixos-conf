@@ -8,6 +8,7 @@
   systemd.services.win-update = {
     description = "Auto-update the NixOS install";
     after = [ "network.target" ];
+    wantedBy = [ ];
 
     path = with pkgs; [
       nixos-rebuild
