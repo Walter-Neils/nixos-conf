@@ -23,6 +23,7 @@
     ../../modules/programs/tidal.nix
     ../../modules/programs/qalculate.nix
     ../../modules/programs/qbittorrent.nix
+    ../../modules/programs/lemurs.nix
     ../../modules/tweaks/fingerprint-sudo.nix
     ../../modules/tweaks/auto-update.nix
   ];

@@ -8,5 +8,6 @@
 {
   imports = [
     ./autologin.nix
+    ./display-manager.nix
   ];
 }
