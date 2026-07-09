@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+sudo /run/current-system/bin/switch-to-configuration switch
