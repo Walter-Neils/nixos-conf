@@ -18,6 +18,7 @@
       "podman"
       "dialout"
       "uinput"
+      "seat"
     ];
     shell = pkgs.unstable.fish;
   };
