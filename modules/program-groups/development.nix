@@ -10,6 +10,5 @@
     ../programs/neovim.nix
     ../programs/git.nix
     ../programs/jujutsu.nix
-    ../programs/rust.nix
   ];
 }
