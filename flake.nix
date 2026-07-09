@@ -49,6 +49,7 @@
               ./modules/common.nix
               ./hosts/${host.name}/configuration.nix
               {
+                system.configurationRevision = if (self ? rev) then self.rev else "dirty";
                 networking.hostName = host.name;
                 nix = {
                   channel.enable = false;
