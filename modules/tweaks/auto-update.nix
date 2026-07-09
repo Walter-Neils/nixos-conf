@@ -7,8 +7,6 @@
 {
   systemd.services.win-update = {
     description = "Auto-update the NixOS install";
-    after = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
 
     path = with pkgs; [
       nixos-rebuild
@@ -31,7 +29,7 @@
     description = "Trigger win-update service every 12 hours";
     wantedBy = [ "timers.target" ]; # Starts the timer on boot
     timerConfig = {
-      OnBootSec = "12h";       # First execution 12 hours after boot (since multi-user.target already ran it at boot)
+      OnBootSec = "5m";        # First execution 5 minutes after boot
       OnUnitActiveSec = "12h"; # Repeat every 12 hours after the service last activated
     };
   };
