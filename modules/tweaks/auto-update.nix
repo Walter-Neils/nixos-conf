@@ -33,6 +33,6 @@
     timerConfig = {
       OnBootSec = "12h";       # First execution 12 hours after boot (since multi-user.target already ran it at boot)
       OnUnitActiveSec = "12h"; # Repeat every 12 hours after the service last activated
-    }
+    };
   };
 }
