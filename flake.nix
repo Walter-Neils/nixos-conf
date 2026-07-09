@@ -12,6 +12,7 @@
   };
   outputs =
     inputs@{
+      self,
       nixpkgs,
       nixpkgs-unstable,
       nixos-hardware,
