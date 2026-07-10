@@ -33,6 +33,11 @@
     fsType = "btrfs";
   };
 
+  fileSystems."/var/lib/docker" = {
+    device = "/dev/mapper/root_vg-docker";
+    fsType = "btrfs";
+  };
+
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/C1D6-F096";
     fsType = "vfat";
