@@ -11,14 +11,14 @@ let
     hyprland
   ];
 
-  activeSessions = builtins.filter 
-    (pkg: lib.elem pkg config.environment.systemPackages) 
-    potentialSessions;
+  activeSessions = builtins.filter (
+    pkg: lib.elem pkg config.environment.systemPackages
+  ) potentialSessions;
 in
 {
   services.displayManager.lemurs = {
     enable = true;
-    
+
     settings = { };
   };
   services.displayManager.sessionPackages = activeSessions;
