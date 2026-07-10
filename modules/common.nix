@@ -36,6 +36,7 @@
   programs.appimage.enable = true;
 
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  boot.kernel.sysctl."kernel.sysrq" = 1; # Enable all SysRQ keys
 
   boot.loader = {
     efi = {
