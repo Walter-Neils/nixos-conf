@@ -6,7 +6,13 @@
   ...
 }:
 {
-  environment.systemPackages = with pkgs; [
-    protontricks
-  ];
+  config = {
+    assertions = [
+      {
+        assertion = config.programs.steam.enable;
+	message = "ProtonTricks requires Steam";
+      }
+    ];
+    programs.steam.protontricks.enable = true;
+  };
 }
