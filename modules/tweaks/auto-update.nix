@@ -19,9 +19,8 @@
 
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pkgs.writeShellScript "my-boot-script" ''
+      ExecStart = "${pkgs.writeShellScript "win-autoupdate" ''
         #!/usr/bin/env bash
-        sleep 30
         HOSTNAME=$(cat /etc/hostname)
         nixos-rebuild boot --refresh --flake github:Walter-Neils/nixos-conf#$HOSTNAME
       ''}";
@@ -31,8 +30,9 @@
     description = "Trigger win-update service every 12 hours";
     wantedBy = [ "timers.target" ]; # Starts the timer on boot
     timerConfig = {
-      OnBootSec = "5min"; # First execution 5 minutes after boot
-      OnUnitActiveSec = "12h"; # Repeat every 12 hours after the service last activated
+      OnBootSec = "5min";
+      OnUnitActiveSec = "6h";
+      RandomizedDelaySec = "15m";
     };
   };
 }

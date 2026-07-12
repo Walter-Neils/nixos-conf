@@ -14,5 +14,8 @@
     ../programs/r2modman.nix
     ../programs/protonup-qt.nix
     ../programs/gpu-screen-recorder.nix
+    ../programs/protontricks.nix
+    ../programs/discord.nix
+    ../programs/amethyst.nix
   ];
 }
