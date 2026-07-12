@@ -55,8 +55,8 @@
             inherit system;
             specialArgs = { inherit inputs nixpkgs nixpkgs-unstable; };
             modules = [
-	      # Declarative flatpak
-	      inputs.nix-flatpak.nixosModules.nix-flatpak
+              # Declarative flatpak
+              inputs.nix-flatpak.nixosModules.nix-flatpak
               ./modules/custom-options/all.nix
               ./modules/common.nix
               ./hosts/${host.name}/configuration.nix
