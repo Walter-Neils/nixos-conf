@@ -13,5 +13,6 @@
     ../programs/lutris.nix
     ../programs/r2modman.nix
     ../programs/protonup-qt.nix
+    ../programs/gpu-screen-recorder.nix
   ];
 }

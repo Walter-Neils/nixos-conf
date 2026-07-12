@@ -9,6 +9,14 @@
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    gsr-ui = {
+      url = "github:rPlakama/gsr-ui-nix";
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+      };
+    };
   };
   outputs =
     inputs@{

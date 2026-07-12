@@ -7,10 +7,10 @@
 }:
 let
   cfg = config.win.limits.memory.browser;
-  
+
   # Build the systemd flags only if the options are not null
   memoryHighFlag = lib.optionalString (cfg.memoryHigh != null) "-p MemoryHigh=${cfg.memoryHigh}";
-  memoryMaxFlag  = lib.optionalString (cfg.memoryMax != null)  "-p MemoryMax=${cfg.memoryMax}";
+  memoryMaxFlag = lib.optionalString (cfg.memoryMax != null) "-p MemoryMax=${cfg.memoryMax}";
 in
 {
   environment.systemPackages = with pkgs; [
