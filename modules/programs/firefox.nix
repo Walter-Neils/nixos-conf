@@ -25,7 +25,6 @@ in
         exec ${pkgs.systemd}/bin/systemd-run \
           --user \
           --scope \
-          --unit="firefox-limited" \
           ${memoryHighFlag} \
           ${memoryMaxFlag} \
           ${pkgs.firefox}/bin/firefox "$@"

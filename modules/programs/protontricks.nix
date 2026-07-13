@@ -10,7 +10,7 @@
     assertions = [
       {
         assertion = config.programs.steam.enable;
-	message = "ProtonTricks requires Steam";
+        message = "ProtonTricks requires Steam";
       }
     ];
     programs.steam.protontricks.enable = true;
