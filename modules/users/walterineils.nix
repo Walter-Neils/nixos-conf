@@ -7,6 +7,7 @@
   ...
 }:
 {
+  users.groups.plugdev = {};
   users.users.walterineils = {
     isNormalUser = true;
     extraGroups = [
@@ -19,6 +20,7 @@
       "dialout"
       "uinput"
       "seat"
+      "plugdev"
     ];
     shell = pkgs.unstable.fish;
   };
