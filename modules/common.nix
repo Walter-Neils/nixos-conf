@@ -94,11 +94,7 @@
     direnv
     duf
     bat
-    power-profiles-daemon
     ripgrep
-    wine
-    gh
-    spotify
     zenity
   ];
 
@@ -129,7 +125,13 @@
 
   environment.localBinInPath = true;
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+      PermitRootLogin = "yes";
+      PasswordAuthentication = true;
+    };
+  };
 
   nix.gc = {
     automatic = true;

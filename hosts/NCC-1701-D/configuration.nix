@@ -25,6 +25,19 @@
     ../../modules/programs/hyprland.nix
   ];
 
+  nix.settings.trusted-users = [
+    "root"
+    "nix-builder"
+  ];
+  users.users.nix-builder = {
+    isSystemUser = true;
+    group = "nix-builder";
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGlF2W/sDiB00cUz69CLp10AJ+AFYJYh/JcMvxwfO+43 root@NCC-1701-D"
+    ];
+  };
+  users.groups.nix-builder = { };
+
   # DO NOT CHANGE THIS. For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion
   system.stateVersion = "26.11"; # Did you read the comment?
 }
