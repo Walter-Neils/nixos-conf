@@ -9,4 +9,9 @@
   environment.systemPackages = with pkgs; [
     neovim
   ];
+
+
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+  };
 }
