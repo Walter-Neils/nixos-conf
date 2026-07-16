@@ -10,6 +10,7 @@
     ../../modules/users/walterineils.nix
     ./hardware-configuration.nix
     ../../modules/programs/hyprland.nix
+    ../../modules/tweaks/autologin.nix
     ../../modules/graphics/intel.nix
     ../../modules/program-groups/standard-gui.nix
     ../../modules/program-groups/pro-audio.nix
