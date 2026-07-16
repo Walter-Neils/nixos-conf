@@ -7,11 +7,6 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    unstable.neovim
+    tmux
   ];
-
-
-  environment.sessionVariables = {
-    EDITOR = "nvim";
-  };
 }

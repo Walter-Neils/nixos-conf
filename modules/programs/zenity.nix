@@ -7,11 +7,6 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    unstable.neovim
+    zenity
   ];
-
-
-  environment.sessionVariables = {
-    EDITOR = "nvim";
-  };
 }

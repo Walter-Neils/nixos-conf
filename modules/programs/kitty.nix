@@ -7,11 +7,6 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    unstable.neovim
+    unstable.kitty
   ];
-
-
-  environment.sessionVariables = {
-    EDITOR = "nvim";
-  };
 }

@@ -79,29 +79,6 @@
     pulse.enable = true;
   };
 
-  programs.fish.enable = true;
-
-  programs.git.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    unstable.neovim
-    unstable.kitty
-    tmux
-    wget
-    eza
-    fastfetch
-    starship
-    direnv
-    duf
-    bat
-    power-profiles-daemon
-    ripgrep
-    wine
-    gh
-    spotify
-    zenity
-  ];
-
   programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
@@ -122,7 +99,6 @@
       "$HOME/.cargo/bin"
     ];
 
-    EDITOR = "nvim";
     NIXOS_OZONE_WL = "1";
     LIBVA_DRIVER_NAME = "iHD";
   };
