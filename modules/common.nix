@@ -12,7 +12,6 @@
 
 {
   imports = [
-    ./programs/flatpak.nix
     ./programs/fwupd.nix
     ./config/firewall.nix
   ];

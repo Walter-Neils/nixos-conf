@@ -7,6 +7,7 @@
 }:
 {
   imports = [
+    ../programs/flatpak.nix
     ../programs/firefox.nix
   ];
 }
