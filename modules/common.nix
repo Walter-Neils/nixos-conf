@@ -14,6 +14,7 @@
   imports = [
     ./programs/fwupd.nix
     ./config/firewall.nix
+    ./config/dbus.nix
   ];
 
   nix.settings.experimental-features = [

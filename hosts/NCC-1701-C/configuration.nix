@@ -26,8 +26,6 @@
     ../../modules/programs/qalculate.nix
     ../../modules/programs/qbittorrent.nix
     ../../modules/programs/lemurs.nix
-    ../../modules/tweaks/fingerprint-sudo.nix
-    ../../modules/tweaks/auto-update.nix
   ];
 
 # /etc/nixos/configuration.nix
@@ -47,6 +45,15 @@ services.udev.extraRules = ''
   SUBSYSTEM=="usb", ATTR{idVendor}=="1bbb", MODE="0666", GROUP="plugdev"
   SUBSYSTEM=="usb", ATTR{idVendor}=="0b05", MODE="0666", GROUP="plugdev"
 '';
+  
+  hardware.bluetooth.enable = true;
+  services.pipewire.wireplumber.extraConfig = {
+      "bluetooth" = {
+          "monitor.bluez.properties" = {
+              "bluez5.codecs" = [ "sbc" "sbc_xq" "aac" "aptx" "aptx_hd" ];
+          };
+      };
+  };
 
   # services.logind.settings.Login.HandleLidSwitch = "suspend";
   # services.logind.settings.Login.HandleLidSwitchDocked = "suspend";
