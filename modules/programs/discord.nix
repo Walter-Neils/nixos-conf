@@ -5,23 +5,23 @@
   inputs,
   ...
 }:
+
+let
+  flatpakEnabled = config.services.flatpak.enable;
+in
 {
   config = {
-    assertions = [
-      {
-        assertion = config.services.flatpak.enable;
-        message = "Discord requires flatpak (Krisp support)";
-      }
+    environment.systemPackages = lib.mkIf (!flatpakEnabled) [
+      pkgs.discord
     ];
 
-    services.flatpak.packages = [
+   services.flatpak.packages = lib.mkIf flatpakEnabled [
       "com.discordapp.Discord"
     ];
 
-    services.flatpak.overrides = {
+    services.flatpak.overrides = lib.mkIf flatpakEnabled {
       "com.discordapp.Discord" = {
         Context = {
-          # 1. Allows Discord to read system processes (Fixes "Activity Status" / game detection)
           filesystems = [ "xdg-run/pipewire-0" ];
           sockets = [
             "x11"
@@ -29,6 +29,22 @@
             "pulseaudio"
           ];
         };
+      };
+    };
+
+    systemd.user.services.discord = {
+      description = "Discord Client";
+      
+      wantedBy = [ "graphical-session.target" ];
+      partOf = [ "graphical-session.target" ];
+
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = if flatpakEnabled 
+          then "${pkgs.flatpak}/bin/flatpak run com.discordapp.Discord"
+          else "${pkgs.discord}/bin/discord";
+        Restart = "on-failure";
+        RestartSec = 5;
       };
     };
   };
