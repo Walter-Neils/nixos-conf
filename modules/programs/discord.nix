@@ -15,7 +15,7 @@ in
       pkgs.discord
     ];
 
-   services.flatpak.packages = lib.mkIf flatpakEnabled [
+    services.flatpak.packages = lib.mkIf flatpakEnabled [
       "com.discordapp.Discord"
     ];
 
@@ -34,15 +34,17 @@ in
 
     systemd.user.services.discord = {
       description = "Discord Client";
-      
+
       wantedBy = [ "graphical-session.target" ];
       partOf = [ "graphical-session.target" ];
 
       serviceConfig = {
         Type = "simple";
-        ExecStart = if flatpakEnabled 
-          then "${pkgs.flatpak}/bin/flatpak run com.discordapp.Discord"
-          else "${pkgs.discord}/bin/discord";
+        ExecStart =
+          if flatpakEnabled then
+            "${pkgs.flatpak}/bin/flatpak run com.discordapp.Discord"
+          else
+            "${pkgs.discord}/bin/discord";
         Restart = "on-failure";
         RestartSec = 5;
       };

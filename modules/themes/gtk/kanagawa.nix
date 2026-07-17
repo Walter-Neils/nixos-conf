@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
-let 
+let
   target = "Kanagawa-B-LB";
 in
 {
   environment.systemPackages = with pkgs; [
     kanagawa-gtk-theme
-    kanagawa-icon-theme  # Optional, but completes the look!
+    kanagawa-icon-theme # Optional, but completes the look!
     gsettings-desktop-schemas
   ];
 

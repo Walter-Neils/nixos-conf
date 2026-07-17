@@ -11,7 +11,6 @@
     ../programs/tmux.nix
   ];
 
-
   environment.systemPackages = with pkgs; [
     wget
     eza

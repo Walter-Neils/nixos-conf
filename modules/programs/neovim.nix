@@ -10,7 +10,6 @@
     unstable.neovim
   ];
 
-
   environment.sessionVariables = {
     EDITOR = "nvim";
   };

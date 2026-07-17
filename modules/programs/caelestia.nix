@@ -21,12 +21,12 @@ in
 
   systemd.user.services.caelestia = {
     description = "Caelestia Desktop Shell";
-    
+
     wantedBy = [ "graphical-session.target" ];
     partOf = [ "graphical-session.target" ];
 
     serviceConfig = {
-      ExecStart = "${caelestia-shell}/bin/caelestia-shell"; 
+      ExecStart = "${caelestia-shell}/bin/caelestia-shell";
       Restart = "on-failure";
       RestartSec = 2;
     };
