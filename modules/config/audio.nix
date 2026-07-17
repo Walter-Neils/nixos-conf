@@ -39,4 +39,19 @@
       };
     };
   };
+
+  hardware.bluetooth.enable = true;
+  services.pipewire.wireplumber.extraConfig = {
+    "bluetooth" = {
+      "monitor.bluez.properties" = {
+        "bluez5.codecs" = [
+          "sbc"
+          "sbc_xq"
+          "aac"
+          "aptx"
+          "aptx_hd"
+        ];
+      };
+    };
+  };
 }
