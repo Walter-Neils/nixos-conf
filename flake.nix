@@ -46,6 +46,7 @@
         { name = "NCC-1701-D"; }
         { name = "kamikaze"; }
         { name = "win-tiny"; }
+        { name = "savtop"; }
       ];
     in
     {
