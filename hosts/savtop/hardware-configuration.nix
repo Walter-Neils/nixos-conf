@@ -13,31 +13,25 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "tmpfs";
-      fsType = "tmpfs";
-    };
+  fileSystems."/" = {
+    device = "/dev/mapper/root-root";
+    fsType = "btrfs";
+  };
 
-  fileSystems."/nix/.rw-store" =
-    { device = "tmpfs";
-      fsType = "tmpfs";
-    };
+  fileSystems."/home" = {
+    device = "/dev/mapper/root-home";
+    fsType = "btrfs";
+  };
 
-  fileSystems."/iso" =
-    { device = "/dev/mapper/ventoy";
-      fsType = "iso9660";
-    };
-
-  fileSystems."/nix/.ro-store" =
-    { device = "/iso/nix-store.squashfs";
-      fsType = "squashfs";
-      options = [ "loop" ];
-    };
-
-  fileSystems."/nix/store" =
-    { device = "overlay";
-      fsType = "overlay";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/nvme0n1p1";
+    fsType = "vfat";
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+      "nofail"
+    ];
+  };
 
   swapDevices = [ ];
 
