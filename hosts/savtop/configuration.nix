@@ -13,6 +13,7 @@
     ../../modules/tweaks/autologin.nix
     ../../modules/tweaks/auto-update.nix
     ../../modules/config/audio.nix
+    ../../modules/config/bluetooth.nix
     ../../modules/program-groups/gaming.nix
     ../../modules/program-groups/standard-gui.nix
     ../../modules/program-groups/windows-compat.nix
