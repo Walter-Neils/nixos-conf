@@ -11,7 +11,6 @@
     ../../modules/users/william.nix
     ./hardware-configuration.nix
     ../../modules/tweaks/autologin.nix
-    ../../modules/tweaks/auto-update.nix
     ../../modules/config/audio.nix
     ../../modules/config/bluetooth.nix
     ../../modules/program-groups/gaming.nix
