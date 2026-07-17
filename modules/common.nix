@@ -15,6 +15,7 @@
     ./programs/fwupd.nix
     ./config/firewall.nix
     ./config/dbus.nix
+    ./programs/git.nix
   ];
 
   nix.settings.experimental-features = [
