@@ -25,6 +25,12 @@ in
     wantedBy = [ "graphical-session.target" ];
     partOf = [ "graphical-session.target" ];
 
+    path = [ 
+      pkgs.bash 
+      "/run/current-system/sw" 
+      "/etc/profiles/per-user/%u" 
+    ];
+
     serviceConfig = {
       ExecStart = "${caelestia-shell}/bin/caelestia-shell";
       Restart = "on-failure";
