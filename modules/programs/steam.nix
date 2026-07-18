@@ -7,6 +7,7 @@
 }:
 {
   programs.steam.enable = true;
+  steam.remotePlay.openFirewall = true;
 
   systemd.user.services.steam = {
     description = "Steam Client";
