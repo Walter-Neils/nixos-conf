@@ -18,6 +18,7 @@
     ../../modules/program-groups/windows-compat.nix
     ../../modules/program-groups/pro-audio.nix
     ../../modules/program-groups/development.nix
+    ../../modules/program-groups/virtualisation.nix
 
     ../../modules/programs/docker.nix
     ../../modules/programs/tailscale.nix

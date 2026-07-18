@@ -27,6 +27,7 @@
       "bluetooth"
       "video"
       "pipewire"
+      "libvirtd"
     ];
     shell = pkgs.unstable.fish;
   };
