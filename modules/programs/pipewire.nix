@@ -6,9 +6,7 @@
   ...
 }:
 {
-  users.groups.bluetooth = {};
   users.groups.pipewire = {};
-  services.blueman.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -19,5 +17,4 @@
       enable = true;
     };
   };
-
 }

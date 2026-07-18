@@ -9,6 +9,6 @@
   imports = [
     ../programs/flatpak.nix
     ../programs/firefox.nix
-    ../config/audio.nix
+    ../programs/pipewire.nix
   ];
 }

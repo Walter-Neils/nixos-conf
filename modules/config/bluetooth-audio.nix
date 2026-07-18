@@ -6,17 +6,12 @@
   ...
 }:
 {
+  imports = [ ../programs/pipewire.nix ];
   hardware.bluetooth.enable = true;
   users.groups.bluetooth = {};
-  users.groups.pipewire = {};
   services.blueman.enable = true;
-  security.rtkit.enable = true;
   services.pipewire.systemWide = true;
   services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
     wireplumber = {
       enable = true;
       extraConfig = {
@@ -41,7 +36,6 @@
     };
   };
 
-  hardware.bluetooth.enable = true;
   services.pipewire.wireplumber.extraConfig = {
     "bluetooth" = {
       "monitor.bluez.properties" = {
