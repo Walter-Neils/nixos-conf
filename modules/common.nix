@@ -16,6 +16,7 @@
     ./config/firewall.nix
     ./config/dbus.nix
     ./programs/git.nix
+    ./programs/atd.nix
   ];
 
   nix.settings.experimental-features = [
