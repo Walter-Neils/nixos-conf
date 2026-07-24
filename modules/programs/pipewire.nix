@@ -6,7 +6,7 @@
   ...
 }:
 {
-  users.groups.pipewire = {};
+  users.groups.pipewire = { };
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

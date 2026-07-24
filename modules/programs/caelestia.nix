@@ -25,10 +25,10 @@ in
     wantedBy = [ "graphical-session.target" ];
     partOf = [ "graphical-session.target" ];
 
-    path = [ 
-      pkgs.bash 
-      "/run/current-system/sw" 
-      "/etc/profiles/per-user/%u" 
+    path = [
+      pkgs.bash
+      "/run/current-system/sw"
+      "/etc/profiles/per-user/%u"
     ];
 
     serviceConfig = {

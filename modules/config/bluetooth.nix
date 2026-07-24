@@ -7,6 +7,6 @@
 }:
 {
   hardware.bluetooth.enable = true;
-  users.groups.bluetooth = {};
+  users.groups.bluetooth = { };
   services.blueman.enable = true;
 }

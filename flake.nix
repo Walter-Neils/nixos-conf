@@ -47,7 +47,7 @@
         { name = "kamikaze"; }
         { name = "win-tiny"; }
         { name = "savtop"; }
-	{ name = "win-worktop"; }
+        { name = "win-worktop"; }
       ];
     in
     {

@@ -10,7 +10,7 @@
   imports = [
     ../themes/gtk/kanagawa.nix
   ];
-  users.groups.plugdev = {};
+  users.groups.plugdev = { };
   users.users.walterineils = {
     isNormalUser = true;
     extraGroups = [

@@ -8,7 +8,7 @@
 {
   imports = [ ../programs/pipewire.nix ];
   hardware.bluetooth.enable = true;
-  users.groups.bluetooth = {};
+  users.groups.bluetooth = { };
   services.blueman.enable = true;
   services.pipewire.systemWide = true;
   services.pipewire = {
