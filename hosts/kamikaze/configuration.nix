@@ -10,6 +10,7 @@
     ../../modules/users/walterineils.nix
     ../../modules/users/kamikaze.nix
     ./hardware-configuration.nix
+    ../../modules/program-groups/development.nix
     ../../modules/tweaks/autologin.nix
     ../../modules/tweaks/auto-update.nix
     ../../modules/program-groups/gaming.nix
