@@ -34,6 +34,7 @@
     "kvm-amd"
     "dm_cache"
     "dm_cache_smq"
+    "ublk_drv"
   ];
   boot.extraModulePackages = [ ];
 
