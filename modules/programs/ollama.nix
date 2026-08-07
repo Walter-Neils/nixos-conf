@@ -6,11 +6,7 @@
   ...
 }:
 {
-  services.ollama = {
-    enable = true;
-    acceleration = "vulkan";
-  };
   environment.systemPackages = with pkgs; [
-    ollama
+    ollama-vulkan
   ];
 }
