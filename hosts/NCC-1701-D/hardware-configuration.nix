@@ -8,7 +8,6 @@
   modulesPath,
   ...
 }:
-
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -54,6 +53,16 @@
     options = [
       "fmask=0022"
       "dmask=0022"
+    ];
+  };
+
+  fileSystems."/var/lib/ollama" = {
+    device = "/dev/mapper/root_vg-ollama";
+    fsType = "btrfs";
+    options = [
+      "nofail"
+      "noatime"
+      "defaults"
     ];
   };
 
