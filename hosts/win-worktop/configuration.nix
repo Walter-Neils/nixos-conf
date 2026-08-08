@@ -21,6 +21,7 @@
     ../../modules/config/bluetooth.nix
 
     ../../modules/programs/docker.nix
+    ../../modules/programs/spotify.nix
     ../../modules/programs/tailscale.nix
     ../../modules/programs/spotify.nix
     ../../modules/programs/hyprland.nix
