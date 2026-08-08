@@ -20,6 +20,7 @@
     ../../modules/program-groups/windows-compat.nix
     ../../modules/program-groups/pro-audio.nix
     ../../modules/program-groups/development.nix
+    ../../modules/program-groups/remote-terminal.nix
     ../../modules/programs/tailscale.nix
     ../../modules/programs/spotify.nix
     ../../modules/programs/tidal.nix

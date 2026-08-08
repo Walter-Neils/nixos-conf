@@ -20,6 +20,7 @@
     ../../modules/program-groups/development.nix
     ../../modules/program-groups/virtualisation.nix
     ../../modules/program-groups/ai.nix
+    ../../modules/program-groups/remote-terminal.nix
 
     ../../modules/programs/docker.nix
     ../../modules/programs/tailscale.nix
