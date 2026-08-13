@@ -25,6 +25,8 @@
     ../../modules/programs/tailscale.nix
     ../../modules/programs/spotify.nix
     ../../modules/programs/hyprland.nix
+
+    ../../modules/programs/lemurs.nix
   ];
 
 
