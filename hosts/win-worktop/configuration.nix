@@ -17,6 +17,8 @@
     ../../modules/program-groups/virtualisation.nix
     ../../modules/program-groups/remote-terminal.nix
 
+
+    ../../modules/tweaks/platformio.nix
     ../../modules/config/bluetooth.nix
 
     ../../modules/programs/docker.nix
