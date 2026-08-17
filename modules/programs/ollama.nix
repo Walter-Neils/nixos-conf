@@ -9,4 +9,5 @@
   environment.systemPackages = with pkgs; [
     ollama-vulkan
   ];
+  services.ollama.enable = true;
 }
