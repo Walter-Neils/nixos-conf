@@ -7,7 +7,7 @@
 }:
 {
   imports = [
-    # ../programs/ollama.nix
-    ../programs/llama.cpp.nix
+    ../programs/ollama.nix
+    # ../programs/llama.cpp.nix
   ];
 }
