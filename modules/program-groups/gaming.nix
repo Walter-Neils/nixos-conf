@@ -17,5 +17,8 @@
     ../programs/protontricks.nix
     ../programs/discord.nix
     ../programs/amethyst.nix
+    ../programs/gamescope.nix
+    ../programs/lact.nix
+    ../programs/lsfg-vk.nix
   ];
 }
