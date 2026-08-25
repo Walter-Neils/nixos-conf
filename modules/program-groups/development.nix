@@ -13,5 +13,6 @@
     ../programs/jujutsu.nix
     ../programs/tealdeer.nix
     ../programs/kitty.nix
+    ../programs/cloudflared.nix
   ];
 }
