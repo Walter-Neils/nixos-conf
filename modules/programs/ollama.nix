@@ -30,8 +30,7 @@ in
     home = "/var/lib/ollama";
     createHome = false;
   };
-  users.groups.ollama = {};
-
+  users.groups.ollama = { };
 
   services.open-webui = {
     enable = true;
@@ -42,7 +41,7 @@ in
       # Point Open WebUI to your local Ollama instance
       OLLAMA_BASE_URL = "http://127.0.0.1:11434";
       # Optional: Disable signup/login if this is a single-user local machine
-      WEBUI_AUTH = "False"; 
+      WEBUI_AUTH = "False";
     };
   };
 }

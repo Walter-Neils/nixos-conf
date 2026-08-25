@@ -26,9 +26,12 @@ in
   users.users.llama-cpp = {
     isSystemUser = true;
     group = "llama-cpp";
-    extraGroups = [ "video" "render" ];
+    extraGroups = [
+      "video"
+      "render"
+    ];
   };
-  users.groups.llama-cpp = {};
+  users.groups.llama-cpp = { };
 
   # llama.cpp systemd service
   systemd.services.llama-cpp = {
@@ -48,13 +51,13 @@ in
       Group = "llama-cpp";
       WorkingDirectory = "/var/lib/llama-cpp";
       ExecStart = ''
-        ${llamaPkg}/bin/llama-server \
-          -hf unsloth/Qwen3.8-27B-GGUF:UD-Q4_K_XL \
-          -ngl 99 \
-          -c 32768 \
-	  --tools all \
-          --host 127.0.0.1 \
-          --port 8080
+                ${llamaPkg}/bin/llama-server \
+                  -hf unsloth/Qwen3.8-27B-GGUF:UD-Q4_K_XL \
+                  -ngl 99 \
+                  -c 32768 \
+        	  --tools all \
+                  --host 127.0.0.1 \
+                  --port 8080
       '';
       Restart = "on-failure";
       RestartSec = 5;
