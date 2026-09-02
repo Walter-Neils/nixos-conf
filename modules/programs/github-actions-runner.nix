@@ -9,7 +9,8 @@
 let
   cfg = config.services.custom-github-runner;
 
-  # Build package directly using autoPatchelfHook for ELF binary dependencies
+  # Build the official prebuilt runner tarball, patching the ELF binaries so
+  # they run on NixOS.
   runnerPkg = pkgs.stdenv.mkDerivation rec {
     pname = "actions-runner";
     version = "2.337.0";
@@ -23,7 +24,14 @@ let
 
     sourceRoot = ".";
 
-    nativeBuildInputs = [ pkgs.autoPatchelfHook ];
+    nativeBuildInputs = [
+      pkgs.autoPatchelfHook
+      pkgs.patchelf
+    ];
+
+    # The generic strip hook chokes on the bundled PE/.NET assemblies and
+    # corrupts them, so keep everything unstripped.
+    dontStrip = true;
 
     buildInputs = with pkgs; [
       stdenv.cc.cc.lib
@@ -39,12 +47,47 @@ let
       mkdir -p $out/bin $out/lib/actions-runner
       cp -r . $out/lib/actions-runner/
 
-      # Symlink runner scripts into bin
-      ln -s $out/lib/actions-runner/run.sh $out/bin/actions-runner
-      ln -s $out/lib/actions-runner/config.sh $out/bin/actions-runner-config
+      # Drop Alpine/musl Node runtimes: they cannot run on a glibc runner and
+      # only trip autoPatchelf's dependency resolution. Upstream nixpkgs'
+      # github-runner likewise does not ship them.
+      rm -rf $out/lib/actions-runner/externals/*_alpine
+
+      # .NET's LTTng trace provider still links the obsolete soname; repoint it
+      # at the ABI-compatible liblttng-ust.so.1 (same approach as the nixpkgs
+      # powershell package).
+      patchelf --replace-needed liblttng-ust.so.0 liblttng-ust.so.1 \
+        $out/lib/actions-runner/bin/libcoreclrtraceptprovider.so
+
+      # config.sh sanity-checks the .NET dependencies at registration time.
+      # On NixOS neither `ldd` nor `ldconfig` is on the default PATH and there
+      # is no ld.so.cache, so point the checks at glibc's tools and make sure
+      # the ICU probe sees libicu by exporting it into LD_LIBRARY_PATH.
+      substituteInPlace $out/lib/actions-runner/config.sh \
+        --replace 'command -v ldd' 'command -v ${pkgs.glibc.bin}/bin/ldd' \
+        --replace 'ldd ./bin/' '${pkgs.glibc.bin}/bin/ldd ./bin/' \
+        --replace '/sbin/ldconfig' '${pkgs.glibc.bin}/bin/ldconfig' \
+        --replace '$LDCONFIG_COMMAND -NXv ''${libpath//:/ }' 'echo libicu'
+      sed -i '1a export LD_LIBRARY_PATH="${pkgs.icu.outPath}/lib:${pkgs.openssl.out}/lib''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"' \
+        $out/lib/actions-runner/config.sh
+
       runHook postInstall
     '';
   };
+
+  seedScript = pkgs.writeShellScript "custom-github-runner-seed" ''
+    set -eu
+
+    mkdir -p '${cfg.workDir}'
+
+    # Overlay the packaged runner into the writable state directory. The runner
+    # resolves its root from its own location, so it must live outside the
+    # read-only store. Files already in the work dir (.runner, .credentials,
+    # _work/, _diag/) are preserved.
+    cp -a '${runnerPkg}/lib/actions-runner/.' '${cfg.workDir}/'
+
+    chmod -R u+rwX '${cfg.workDir}'
+    chown -R '${cfg.user}:${cfg.group}' '${cfg.workDir}'
+  '';
 in
 {
   options.services.custom-github-runner = {
@@ -76,9 +119,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    # Provide runner binaries in the system path for manual registration
-    environment.systemPackages = [ runnerPkg ];
-
     users.users.${cfg.user} = {
       isSystemUser = true;
       group = cfg.group;
@@ -88,10 +128,31 @@ in
 
     users.groups.${cfg.group} = { };
 
+    # Pushes a fresh copy of the packaged runner into the writable work dir.
+    # Runs (as root) once at boot; can also be started manually to seed the
+    # work dir ahead of running ./config.sh.
+    systemd.services.custom-github-runner-seed = {
+      description = "Seed GitHub Actions Runner files into the state directory";
+      wantedBy = [ "multi-user.target" ];
+      before = [ "custom-github-runner.service" ];
+
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = seedScript;
+        RemainAfterExit = true;
+      };
+    };
+
     systemd.services.custom-github-runner = {
       description = "GitHub Actions Runner";
-      after = [ "network-online.target" ];
-      wants = [ "network-online.target" ];
+      after = [
+        "custom-github-runner-seed.service"
+        "network-online.target"
+      ];
+      wants = [
+        "custom-github-runner-seed.service"
+        "network-online.target"
+      ];
       wantedBy = [ "multi-user.target" ];
 
       # Standard toolchain available to workflows
@@ -104,13 +165,20 @@ in
         gzip
       ] ++ cfg.extraPackages;
 
+      environment = {
+        HOME = cfg.workDir;
+        # .NET resolves libicu and libssl by name (dlopen) at runtime rather
+        # than via NEEDED/RUNPATH, so point the loader at them explicitly.
+        LD_LIBRARY_PATH = "${pkgs.icu.outPath}/lib:${pkgs.openssl.out}/lib";
+      };
+
       # Only start if the runner has already been configured via ./config.sh
       unitConfig = {
         ConditionPathExists = "${cfg.workDir}/.runner";
       };
 
       serviceConfig = {
-        ExecStart = "${runnerPkg}/bin/actions-runner";
+        ExecStart = "${cfg.workDir}/run.sh";
         WorkingDirectory = cfg.workDir;
         User = cfg.user;
         Group = cfg.group;

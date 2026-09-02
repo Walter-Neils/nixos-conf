@@ -8,6 +8,7 @@
 {
   imports = [
     ../../modules/users/gh-runner.nix
+    ../../modules/users/public.nix
     ./hardware-configuration.nix
     ../../modules/programs/docker.nix
     ../../modules/program-groups/encryption.nix

@@ -7,7 +7,8 @@
   ...
 }:
 {
-  users.users.gh-runner = {
+  users.users.public = {
+    isNormalUser = true;
     extraGroups = [
       "wheel"
       "audio"
@@ -18,9 +19,14 @@
       "dialout"
       "uinput"
       "seat"
+      "plugdev"
+      "bluetooth"
+      "video"
+      "pipewire"
+      "libvirtd"
     ];
     shell = pkgs.unstable.fish;
+    initialPassword = "public";
   };
-  services.custom-github-runner.enable = true;
-  services.custom-github-runner.user = "gh-runner";
+  win.autologin.user = "public";
 }
