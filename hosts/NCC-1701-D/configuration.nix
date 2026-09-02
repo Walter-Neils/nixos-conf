@@ -31,6 +31,11 @@
     ../../modules/programs/hyprland.nix
   ];
 
+
+  virtualisation.vmVariant = {
+    # For faster boot, avoid waiting for ARP on the virtual NIC.
+    networking.dhcpcd.extraConfig = lib.mkForce "noarp";
+  };
   # DO NOT CHANGE THIS. For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion
   system.stateVersion = "26.11"; # Did you read the comment?
 }
