@@ -61,13 +61,16 @@ let
       # config.sh sanity-checks the .NET dependencies at registration time.
       # On NixOS neither `ldd` nor `ldconfig` is on the default PATH and there
       # is no ld.so.cache, so point the checks at glibc's tools and make sure
-      # the ICU probe sees libicu by exporting it into LD_LIBRARY_PATH.
+      # the ICU probe sees libicu by exporting it into LD_LIBRARY_PATH. Put
+      # `nix` on PATH too so the .path/.env snapshot captured here includes it.
       substituteInPlace $out/lib/actions-runner/config.sh \
         --replace 'command -v ldd' 'command -v ${pkgs.glibc.bin}/bin/ldd' \
         --replace 'ldd ./bin/' '${pkgs.glibc.bin}/bin/ldd ./bin/' \
         --replace '/sbin/ldconfig' '${pkgs.glibc.bin}/bin/ldconfig' \
         --replace '$LDCONFIG_COMMAND -NXv ''${libpath//:/ }' 'echo libicu'
-      sed -i '1a export LD_LIBRARY_PATH="${pkgs.icu.outPath}/lib:${pkgs.openssl.out}/lib''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"' \
+      sed -i '1a export PATH="${config.nix.package}/bin:$PATH"' \
+        $out/lib/actions-runner/config.sh
+      sed -i '2a export LD_LIBRARY_PATH="${pkgs.icu.outPath}/lib:${pkgs.openssl.out}/lib''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"' \
         $out/lib/actions-runner/config.sh
 
       runHook postInstall
@@ -128,6 +131,19 @@ in
 
     users.groups.${cfg.group} = { };
 
+    # Container jobs (`jobs.<id>.container`) cannot inherit the runner's
+    # ambient PATH. To use nix inside a container, mount the host store and
+    # daemon socket and use an image carrying the nix CLI, e.g.:
+    #
+    #   container:
+    #     image: nixos/nix:latest
+    #     options: >-
+    #       -v /nix:/nix:ro
+    #       -v /nix/var/nix/daemon-socket:/nix/var/nix/daemon-socket
+    #
+    # The runner user already has docker access, so no host-side change is
+    # needed beyond this.
+
     # Pushes a fresh copy of the packaged runner into the writable work dir.
     # Runs (as root) once at boot; can also be started manually to seed the
     # work dir ahead of running ./config.sh.
@@ -155,15 +171,21 @@ in
       ];
       wantedBy = [ "multi-user.target" ];
 
-      # Standard toolchain available to workflows
-      path = with pkgs; [
-        bash
-        coreutils
-        git
-        curl
-        gnutar
-        gzip
-      ] ++ cfg.extraPackages;
+      # Standard toolchain available to workflows. `nix` is on the ambient
+      # PATH so workflow steps can drive the host's nix daemon.
+      path =
+        (with pkgs; [
+          bash
+          coreutils
+          git
+          curl
+          gnutar
+          gzip
+        ])
+        ++ [
+          config.nix.package
+        ]
+        ++ cfg.extraPackages;
 
       environment = {
         HOME = cfg.workDir;
