@@ -12,6 +12,7 @@
     ./hardware-configuration.nix
     ../../modules/config/bluetooth.nix
     ../../modules/program-groups/development.nix
+    ../../modules/program-groups/emulators.nix
     ../../modules/tweaks/autologin.nix
     ../../modules/tweaks/auto-update.nix
     ../../modules/program-groups/gaming.nix

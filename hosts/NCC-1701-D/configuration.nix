@@ -14,6 +14,7 @@
     ../../modules/tweaks/headless-streamer.nix
     ../../modules/tweaks/platformio.nix
     ../../modules/program-groups/encryption.nix
+    ../../modules/program-groups/emulators.nix
     ../../modules/program-groups/standard-gui.nix
     ../../modules/program-groups/game-streaming.nix
     ../../modules/program-groups/gaming.nix
