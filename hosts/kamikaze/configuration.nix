@@ -24,6 +24,7 @@
     ../../modules/programs/spotify.nix
     ../../modules/programs/kde-plasma.nix
     ../../modules/programs/expressvpn.nix
+    ../../modules/programs/qbittorrent.nix
   ];
 
   # DO NOT CHANGE THIS. For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion
