@@ -8,5 +8,6 @@
 {
   imports = [
     ../programs/ryubing.nix
+    ../program/xemu.nix
   ];
 }
