@@ -8,5 +8,6 @@
 {
   imports = [
     ../programs/protonvpn.nix
+    ../programs/qbittorrent.nix
   ];
 }
