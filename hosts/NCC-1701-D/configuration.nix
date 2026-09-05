@@ -24,6 +24,7 @@
     ../../modules/program-groups/virtualisation.nix
     ../../modules/program-groups/ai.nix
     ../../modules/program-groups/remote-terminal.nix
+    ../../modules/program-groups/vpn.nix
 
     ../../modules/programs/docker.nix
     ../../modules/programs/tailscale.nix

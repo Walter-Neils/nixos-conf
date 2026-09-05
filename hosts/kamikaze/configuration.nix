@@ -20,10 +20,10 @@
     ../../modules/program-groups/standard-gui.nix
     ../../modules/program-groups/windows-compat.nix
     ../../modules/program-groups/pro-audio.nix
+    ../../modules/program-groups/vpn.nix
     ../../modules/programs/tailscale.nix
     ../../modules/programs/spotify.nix
     ../../modules/programs/kde-plasma.nix
-    ../../modules/programs/expressvpn.nix
     ../../modules/programs/qbittorrent.nix
   ];
 
