@@ -26,6 +26,7 @@
       "plugdev"
       "bluetooth"
       "video"
+      "render"
       "pipewire"
       "libvirtd"
     ];
