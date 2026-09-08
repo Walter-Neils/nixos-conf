@@ -9,7 +9,11 @@
   environment.systemPackages = with pkgs; [
     pkgs.pkgsRocm.blender
   ];
-  systemd.tmpfiles.rules = [
-    "L+ /opt/rocm/hip - - - - ${pkgs.rocmPackages.clr}"
-  ];
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      rocmPackages.clr
+      rocmPackages.clr.icd
+    ];
+  };
 }
