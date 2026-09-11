@@ -11,5 +11,6 @@
     ../programs/flatpak.nix
     ../programs/firefox.nix
     ../programs/pipewire.nix
+    ../programs/distrobox.nix
   ];
 }
