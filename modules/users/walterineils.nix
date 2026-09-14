@@ -30,7 +30,7 @@
       "pipewire"
       "libvirtd"
     ];
-    shell = pkgs.unstable.fish;
+    shell = pkgs.fish;
   };
   win.autologin.user = lib.mkDefault "walterineils";
 }
