@@ -69,6 +69,7 @@
   services.resolved.enable = true;
 
   boot.tmp.cleanOnBoot = true;
+  boot.tmp.useTmpfs = true;
 
   networking.networkmanager.enable = true;
 
@@ -114,4 +115,9 @@
     dates = "weekly";
     options = "--delete-older-than 14d";
   };
+  
+  environment.systemPackages = with pkgs; [
+    thin-provisioning-tools
+    lvm2
+  ];
 }
