@@ -48,11 +48,12 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/nvme1n1p1";
+    device = "/dev/disk/by-id/nvme-eui.002538b921a03031-part1";
     fsType = "vfat";
     options = [
       "fmask=0022"
       "dmask=0022"
+      "nofail"
     ];
   };
 
