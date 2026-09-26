@@ -33,6 +33,7 @@
     ../../modules/programs/spotify.nix
     ../../modules/programs/tidal.nix
     ../../modules/programs/hyprland.nix
+    ../../modules/programs/bazaar.nix
   ];
 
 
