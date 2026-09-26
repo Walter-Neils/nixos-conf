@@ -8,8 +8,8 @@
 {
   imports = [
     ./custom-mounts.nix
-    ../../modules/users/walterineils.nix
     ./hardware-configuration.nix
+    ../../modules/users/walterineils.nix
     ../../modules/config/bluetooth.nix
     ../../modules/tweaks/autologin.nix
     ../../modules/tweaks/headless-streamer.nix
@@ -26,6 +26,7 @@
     ../../modules/program-groups/ai.nix
     ../../modules/program-groups/remote-terminal.nix
     ../../modules/program-groups/vpn.nix
+    ../../modules/program-groups/media.nix
 
     ../../modules/programs/docker.nix
     ../../modules/programs/tailscale.nix

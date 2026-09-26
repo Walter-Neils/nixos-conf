@@ -21,6 +21,7 @@
     ../../modules/program-groups/windows-compat.nix
     ../../modules/program-groups/pro-audio.nix
     ../../modules/program-groups/vpn.nix
+    ../../modules/program-groups/media.nix
     ../../modules/programs/tailscale.nix
     ../../modules/programs/spotify.nix
     ../../modules/programs/kde-plasma.nix
