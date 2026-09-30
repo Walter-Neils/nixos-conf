@@ -34,6 +34,7 @@
     ../../modules/programs/tidal.nix
     ../../modules/programs/hyprland.nix
     ../../modules/programs/bazaar.nix
+    ../../modules/programs/root-chat.nix
   ];
 
 
