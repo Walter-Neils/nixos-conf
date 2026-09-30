@@ -6,5 +6,6 @@
   ...
 }:
 {
+  imports = [ ./github.nix ];
   programs.git.enable = true;
 }
