@@ -18,6 +18,7 @@
       };
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
   outputs =
     inputs@{
@@ -49,6 +50,7 @@
         { name = "savtop"; }
         { name = "win-worktop"; }
         { name = "gh-runner"; }
+        { name = "minecraft-server"; }
       ];
     in
     {
@@ -65,6 +67,7 @@
               ./modules/common.nix
               ./hosts/${host.name}/configuration.nix
               {
+	        imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
                 system.configurationRevision = if (self ? rev) then self.rev else "dirty";
                 networking.hostName = host.name;
                 nix = {
@@ -79,6 +82,7 @@
                 nixpkgs.overlays = [
                   overlay-stable
                   overlay-unstable
+		  inputs.nix-minecraft.overlay
                 ];
 
                 environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;

@@ -7,6 +7,7 @@
   ...
 }:
 {
+  imports = [ ../programs/github-actions-runner.nix ];
   users.users.gh-runner = {
     extraGroups = [
       "wheel"
