@@ -20,5 +20,6 @@
     duf
     bat
     ripgrep
+    btop
   ];
 }

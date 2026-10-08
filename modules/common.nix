@@ -17,6 +17,7 @@
     ./config/dbus.nix
     ./programs/git.nix
     ./programs/atd.nix
+    ./programs/kmscon.nix
   ];
 
   nix.settings.experimental-features = [
