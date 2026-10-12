@@ -113,7 +113,19 @@
 
   environment.localBinInPath = true;
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    # No password logins anywhere: every host is key-or-identity only.
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
+  };
+
+  # Root is reachable with the master SSH key on all systems.
+  users.users.root.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH93LoHcLfFQr69sujYotCO07hAqL6L5heaXPIOjX2p1 Walter's Master SSH Key"
+  ];
 
   nix.gc = {
     automatic = true;

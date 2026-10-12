@@ -19,6 +19,10 @@
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs@{
@@ -51,6 +55,7 @@
         { name = "win-worktop"; }
         { name = "gh-runner"; }
         { name = "minecraft-server"; }
+        { name = "oci-primary"; system = "aarch64-linux"; }
       ];
     in
     {
@@ -63,6 +68,8 @@
             modules = [
               # Declarative flatpak
               inputs.nix-flatpak.nixosModules.nix-flatpak
+              # Declarative disk partitioning (nixos-anywhere)
+              inputs.disko.nixosModules.disko
               ./modules/custom-options/all.nix
               ./modules/common.nix
               ./hosts/${host.name}/configuration.nix
