@@ -29,8 +29,8 @@
       ...
     }:
     let
-      system = "x86_64-linux";
-      overlay-unstable = final: prev: {
+      hostSystem = host: host.system or "x86_64-linux";
+      overlay-unstable = system: final: prev: {
         unstable = import nixpkgs-unstable {
           inherit system;
           config = {
@@ -58,7 +58,7 @@
         map (host: {
           name = host.name;
           value = nixpkgs.lib.nixosSystem {
-            inherit system;
+            system = hostSystem host;
             specialArgs = { inherit inputs nixpkgs nixpkgs-unstable; };
             modules = [
               # Declarative flatpak
@@ -81,7 +81,7 @@
 
                 nixpkgs.overlays = [
                   overlay-stable
-                  overlay-unstable
+                  (overlay-unstable (hostSystem host))
 		  inputs.nix-minecraft.overlay
                 ];
 

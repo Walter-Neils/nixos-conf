@@ -38,12 +38,16 @@
 
   programs.appimage.enable = true;
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  boot.kernelPackages =
+    if pkgs.stdenv.hostPlatform.isx86_64 then
+      pkgs.linuxKernel.packages.linux_zen
+    else
+      pkgs.linuxPackages;
   boot.kernel.sysctl."kernel.sysrq" = 1; # Enable all SysRQ keys
 
   boot.loader = {
     efi = {
-      canTouchEfiVariables = true;
+      canTouchEfiVariables = lib.mkDefault true;
       efiSysMountPoint = "/boot";
     };
 
@@ -58,7 +62,7 @@
 
   hardware.graphics = {
     enable = true;
-    enable32Bit = true;
+    enable32Bit = lib.mkIf pkgs.stdenv.hostPlatform.isx86_64 true;
   };
 
   services.power-profiles-daemon.enable = true;

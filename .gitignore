@@ -1,0 +1,6 @@
+# Local VM disk images (untracked build artifacts). Without this, every
+# flake evaluation of a dirty worktree copied them into /nix/store.
+*.qcow2
+
+# Evaluated NixOS VM
+result
