@@ -14,6 +14,7 @@
     ../../modules/program-groups/development.nix
     ../../modules/users/walterineils.nix
     ../../modules/tweaks/storage-grow.nix
+    ../../modules/tweaks/auto-update.nix
   ];
 
   # Oracle Cloud Ampere A1 instances boot UEFI and do not allow writing EFI
