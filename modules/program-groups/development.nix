@@ -9,6 +9,7 @@
   imports = [
     ../program-groups/terminal.nix
     ../programs/neovim.nix
+    ../programs/neovide.nix
     ../programs/git.nix
     ../programs/jujutsu.nix
     ../programs/tealdeer.nix
