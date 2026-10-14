@@ -15,11 +15,12 @@
     grim
     hyprpolkitagent
   ];
-  hardware.graphics = {
-    package = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.mesa;
-    package32 =
-      inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.pkgsi686Linux.mesa;
-  };
+  # NOTE: Do NOT override hardware.graphics.package with the Hyprland flake's
+  # Mesa. That Mesa is built from Hyprland's own pinned nixpkgs (nixos-unstable),
+  # which uses a newer glibc than this system's nixpkgs (nixos-26.05). Mixing the
+  # two makes EGL/Vulkan fail to load in system apps (no WebGL in browsers,
+  # neovide won't launch). Hyprland loads Mesa through libglvnd at runtime, so
+  # the system Mesa works fine. Enable/32-bit are set in modules/common.nix.
   programs.hyprland = {
     enable = true;
     withUWSM = true;

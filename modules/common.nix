@@ -127,6 +127,8 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH93LoHcLfFQr69sujYotCO07hAqL6L5heaXPIOjX2p1 Walter's Master SSH Key"
   ];
 
+  nix.settings.auto-optimise-store = true;
+
   nix.gc = {
     automatic = true;
     dates = "weekly";
