@@ -34,10 +34,8 @@
     ../../modules/program-groups/vpn.nix
     ../../modules/program-groups/media.nix
 
-    ../../modules/programs/tailscale.nix
     ../../modules/programs/hyprland.nix
-    # ../../modules/programs/root-chat.nix
-    ../../modules/programs/onlyoffice.nix
+    ../../modules/program-groups/office.nix
   ];
 
 

@@ -9,8 +9,7 @@
   imports = [
     ./hardware-configuration.nix
     ./disko.nix
-    ../../modules/programs/fail2ban.nix
-    ../../modules/programs/tailscale.nix
+    ../../modules/program-groups/server-hardening.nix
     ../../modules/program-groups/development.nix
     ../../modules/program-groups/networking.nix
     ../../modules/users/walterineils.nix

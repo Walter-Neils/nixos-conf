@@ -28,7 +28,6 @@
     ../../modules/program-groups/audio.nix
     ../../modules/program-groups/vpn.nix
     ../../modules/program-groups/media.nix
-    ../../modules/programs/tailscale.nix
     ../../modules/programs/kde-plasma.nix
   ];
 

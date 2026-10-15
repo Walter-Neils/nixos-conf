@@ -13,6 +13,8 @@
 {
   imports = [
     ./programs/fwupd.nix
+    ./programs/pipewire.nix
+    ./programs/power-profiles-daemon.nix
     ./config/firewall.nix
     ./config/dbus.nix
     ./programs/git.nix
@@ -65,8 +67,6 @@
     enable32Bit = lib.mkIf pkgs.stdenv.hostPlatform.isx86_64 true;
   };
 
-  services.power-profiles-daemon.enable = true;
-
   services.chrony.enable = true;
 
   services.envfs.enable = true;
@@ -81,11 +81,6 @@
   time.timeZone = "America/Los_Angeles";
 
   services.printing.enable = true;
-
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
 
   programs.mtr.enable = true;
   programs.gnupg.agent = {

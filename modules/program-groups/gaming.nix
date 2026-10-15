@@ -16,7 +16,6 @@
     ../programs/protontricks.nix
     ../programs/amethyst.nix
     ../programs/gamescope.nix
-    ../programs/power-profiles-daemon.nix
   ];
 
   assertions = [

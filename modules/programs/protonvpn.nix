@@ -9,6 +9,4 @@
   environment.systemPackages = with pkgs; [
     proton-vpn
   ];
-
-  services.expressvpn.enable = true;
 }

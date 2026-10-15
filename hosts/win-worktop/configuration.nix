@@ -25,7 +25,6 @@
     ../../modules/tweaks/platformio.nix
     ../../modules/config/bluetooth.nix
 
-    ../../modules/programs/tailscale.nix
     ../../modules/programs/hyprland.nix
 
     ../../modules/programs/lemurs.nix

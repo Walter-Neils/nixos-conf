@@ -10,9 +10,9 @@
     ../../modules/users/gh-runner.nix
     ../../modules/users/public.nix
     ./hardware-configuration.nix
-    ../../modules/programs/docker.nix
+    ../../modules/program-groups/containers.nix
     ../../modules/program-groups/cryptography.nix
-    ../../modules/programs/tailscale.nix
+    ../../modules/program-groups/networking.nix
     ../../modules/programs/lemurs.nix
     ../../modules/programs/github.nix
     ../../modules/programs/github-actions-runner.nix

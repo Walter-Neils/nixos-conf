@@ -28,8 +28,7 @@
     ../../modules/program-groups/remote-shell.nix
     ../../modules/program-groups/downloads.nix
     ../../modules/program-groups/media.nix
-    ../../modules/programs/tailscale.nix
-    ../../modules/programs/qalculate.nix
+    ../../modules/program-groups/office.nix
     ../../modules/programs/lemurs.nix
   ];
 

@@ -8,5 +8,6 @@
 {
   imports = [
     ../programs/cloudflared.nix
+    ../programs/tailscale.nix
   ];
 }

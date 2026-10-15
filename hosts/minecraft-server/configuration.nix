@@ -10,11 +10,11 @@
     ../../modules/users/gh-runner.nix
     ../../modules/users/public.nix
     ./hardware-configuration.nix
-    ../../modules/programs/docker.nix
+    ../../modules/program-groups/containers.nix
     ../../modules/program-groups/cryptography.nix
-    ../../modules/programs/tailscale.nix
+    ../../modules/program-groups/networking.nix
     ../../modules/programs/lemurs.nix
-    ../../modules/programs/minecraft-server.nix
+    ../../modules/program-groups/game-server.nix
   ];
 
   # Headless server: no display stack, so graphical program groups are disabled.
