@@ -10,22 +10,26 @@
     ../../modules/users/walterineils.nix
     ./hardware-configuration.nix
     ../../modules/programs/hyprland.nix
-    ../../modules/programs/docker.nix
     ../../modules/graphics/intel.nix
     ../../modules/graphics/nvidia.nix
-    ../../modules/program-groups/standard-gui.nix
-    ../../modules/program-groups/encryption.nix
-    ../../modules/program-groups/game-streaming.nix
+    ../../modules/program-groups/desktop.nix
+    ../../modules/program-groups/browsing.nix
+    ../../modules/program-groups/app-distribution.nix
+    ../../modules/program-groups/containers.nix
+    ../../modules/program-groups/cryptography.nix
+    ../../modules/program-groups/remote-play.nix
     ../../modules/program-groups/gaming.nix
-    ../../modules/program-groups/windows-compat.nix
-    ../../modules/program-groups/pro-audio.nix
+    ../../modules/program-groups/gpu-tools.nix
+    ../../modules/program-groups/communication.nix
+    ../../modules/program-groups/windows-compatibility.nix
+    ../../modules/program-groups/audio.nix
     ../../modules/program-groups/development.nix
-    ../../modules/program-groups/remote-terminal.nix
+    ../../modules/program-groups/networking.nix
+    ../../modules/program-groups/remote-shell.nix
+    ../../modules/program-groups/downloads.nix
+    ../../modules/program-groups/media.nix
     ../../modules/programs/tailscale.nix
-    ../../modules/programs/spotify.nix
-    ../../modules/programs/tidal.nix
     ../../modules/programs/qalculate.nix
-    ../../modules/programs/qbittorrent.nix
     ../../modules/programs/lemurs.nix
   ];
 

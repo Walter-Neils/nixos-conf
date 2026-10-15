@@ -14,26 +14,28 @@
     ../../modules/tweaks/autologin.nix
     ../../modules/tweaks/headless-streamer.nix
     ../../modules/tweaks/platformio.nix
-    ../../modules/program-groups/encryption.nix
-    ../../modules/program-groups/emulators.nix
-    ../../modules/program-groups/standard-gui.nix
-    ../../modules/program-groups/game-streaming.nix
+    ../../modules/program-groups/cryptography.nix
+    ../../modules/program-groups/game-emulators.nix
+    ../../modules/program-groups/desktop.nix
+    ../../modules/program-groups/browsing.nix
+    ../../modules/program-groups/app-distribution.nix
+    ../../modules/program-groups/containers.nix
+    ../../modules/program-groups/remote-play.nix
     ../../modules/program-groups/gaming.nix
-    ../../modules/program-groups/windows-compat.nix
-    ../../modules/program-groups/pro-audio.nix
+    ../../modules/program-groups/gpu-tools.nix
+    ../../modules/program-groups/communication.nix
+    ../../modules/program-groups/windows-compatibility.nix
+    ../../modules/program-groups/audio.nix
     ../../modules/program-groups/development.nix
+    ../../modules/program-groups/networking.nix
     ../../modules/program-groups/virtualisation.nix
-    ../../modules/program-groups/ai.nix
-    ../../modules/program-groups/remote-terminal.nix
+    ../../modules/program-groups/local-ai.nix
+    ../../modules/program-groups/remote-shell.nix
     ../../modules/program-groups/vpn.nix
     ../../modules/program-groups/media.nix
 
-    ../../modules/programs/docker.nix
     ../../modules/programs/tailscale.nix
-    ../../modules/programs/spotify.nix
-    ../../modules/programs/tidal.nix
     ../../modules/programs/hyprland.nix
-    ../../modules/programs/bazaar.nix
     # ../../modules/programs/root-chat.nix
     ../../modules/programs/onlyoffice.nix
   ];

@@ -13,12 +13,9 @@
     ../programs/lutris.nix
     ../programs/r2modman.nix
     ../programs/protonup-qt.nix
-    ../programs/gpu-screen-recorder.nix
     ../programs/protontricks.nix
-    ../programs/discord.nix
     ../programs/amethyst.nix
     ../programs/gamescope.nix
-    ../programs/lact.nix
-    ../programs/lsfg-vk.nix
+    ../programs/power-profiles-daemon.nix
   ];
 }

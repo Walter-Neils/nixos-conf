@@ -12,6 +12,7 @@
     ../../modules/programs/fail2ban.nix
     ../../modules/programs/tailscale.nix
     ../../modules/program-groups/development.nix
+    ../../modules/program-groups/networking.nix
     ../../modules/users/walterineils.nix
     ../../modules/tweaks/storage-grow.nix
     ../../modules/tweaks/auto-update.nix

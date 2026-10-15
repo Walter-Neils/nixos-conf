@@ -8,5 +8,6 @@
 {
   imports = [
     ../programs/opensnitch.nix
+    ../programs/firejail.nix
   ];
 }

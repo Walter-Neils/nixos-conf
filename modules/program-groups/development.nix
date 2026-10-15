@@ -7,13 +7,11 @@
 }:
 {
   imports = [
-    ../program-groups/terminal.nix
+    ./cli.nix
     ../programs/neovim.nix
     ../programs/neovide.nix
     ../programs/git.nix
     ../programs/jujutsu.nix
     ../programs/tealdeer.nix
-    ../programs/kitty.nix
-    ../programs/cloudflared.nix
   ];
 }

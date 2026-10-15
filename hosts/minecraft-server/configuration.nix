@@ -11,7 +11,7 @@
     ../../modules/users/public.nix
     ./hardware-configuration.nix
     ../../modules/programs/docker.nix
-    ../../modules/program-groups/encryption.nix
+    ../../modules/program-groups/cryptography.nix
     ../../modules/programs/tailscale.nix
     ../../modules/programs/lemurs.nix
     ../../modules/programs/minecraft-server.nix

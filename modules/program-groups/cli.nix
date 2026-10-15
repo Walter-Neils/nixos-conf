@@ -9,6 +9,7 @@
   imports = [
     ../programs/fish.nix
     ../programs/tmux.nix
+    ../programs/kitty.nix
   ];
 
   environment.systemPackages = with pkgs; [
