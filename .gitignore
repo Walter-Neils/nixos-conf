@@ -4,3 +4,6 @@
 
 # Evaluated NixOS VM
 result
+
+# Agent planning/working documentation (not tracked)
+agents-documentation/
