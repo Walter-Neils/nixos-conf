@@ -6,5 +6,7 @@
   ...
 }:
 {
-  programs.virt-manager.enable = true;
+  config = lib.mkIf config.win.isSystemGraphical {
+    programs.virt-manager.enable = true;
+  };
 }

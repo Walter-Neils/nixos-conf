@@ -17,6 +17,9 @@
     ../../modules/programs/minecraft-server.nix
   ];
 
+  # Headless server: no display stack, so graphical program groups are disabled.
+  win.isSystemGraphical = false;
+
   services.logind.lidSwitch = "ignore";
 
   nix.settings.trusted-users = [

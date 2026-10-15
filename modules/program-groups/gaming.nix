@@ -18,4 +18,11 @@
     ../programs/gamescope.nix
     ../programs/power-profiles-daemon.nix
   ];
+
+  assertions = [
+    {
+      assertion = config.win.isSystemGraphical;
+      message = "The 'gaming' program group requires a graphical system (win.isSystemGraphical = true).";
+    }
+  ];
 }

@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 {
-  config = {
+  config = lib.mkIf config.win.isSystemGraphical {
     assertions = [
       {
         assertion = config.services.flatpak.enable;

@@ -18,6 +18,9 @@
     ../../modules/tweaks/auto-update.nix
   ];
 
+  # Headless server: no display stack, so graphical program groups are disabled.
+  win.isSystemGraphical = false;
+
   # Oracle Cloud Ampere A1 instances boot UEFI and do not allow writing EFI
   # variables, so GRUB must be installed as a removable EFI app.
   boot.loader.grub.efiInstallAsRemovable = true;

@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   inputs,
@@ -71,35 +72,37 @@ in
     inputs.gsr-ui.nixosModules.default
   ];
 
-  programs.gpu-screen-recorder = {
-    package = inputs.gsr-ui.packages.${pkgs.stdenv.hostPlatform.system}.gpu-screen-recorder;
-    enable = true;
-    ui = {
+  config = lib.mkIf config.win.isSystemGraphical {
+    programs.gpu-screen-recorder = {
+      package = inputs.gsr-ui.packages.${pkgs.stdenv.hostPlatform.system}.gpu-screen-recorder;
       enable = true;
-      package = gsr-ui-pkg;
-      notificationPackage = lib.mkDefault gpu-screen-recorder-notification;
+      ui = {
+        enable = true;
+        package = gsr-ui-pkg;
+        notificationPackage = lib.mkDefault gpu-screen-recorder-notification;
+      };
     };
-  };
 
-  systemd.user.services.gpu-screen-recorder-ui = {
-    description = "GPU Screen Recorder UI (ShadowPlay Overlay)";
+    systemd.user.services.gpu-screen-recorder-ui = {
+      description = "GPU Screen Recorder UI (ShadowPlay Overlay)";
 
-    after = [ "graphical-session.target" ];
-    wants = [ "graphical-session.target" ];
-    wantedBy = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      wantedBy = [ "graphical-session.target" ];
 
-    environment = { };
+      environment = { };
 
-    serviceConfig = {
-      # Use the explicit package path we extracted above
-      ExecStart = "${gsr-ui-pkg}/bin/gsr-ui";
+      serviceConfig = {
+        # Use the explicit package path we extracted above
+        ExecStart = "${gsr-ui-pkg}/bin/gsr-ui";
 
-      Environment = [
-        "PATH=${gsr-ui-pkg}/bin:/run/current-system/sw/bin"
-      ];
+        Environment = [
+          "PATH=${gsr-ui-pkg}/bin:/run/current-system/sw/bin"
+        ];
 
-      Restart = "on-failure";
-      RestartSec = "3";
+        Restart = "on-failure";
+        RestartSec = "3";
+      };
     };
   };
 }

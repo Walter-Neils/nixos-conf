@@ -6,7 +6,9 @@
   ...
 }:
 {
-  environment.systemPackages = with pkgs; [
-    moonlight-qt
-  ];
+  config = lib.mkIf config.win.isSystemGraphical {
+    environment.systemPackages = with pkgs; [
+      moonlight-qt
+    ];
+  };
 }
