@@ -21,7 +21,8 @@
     ../../modules/program-groups/networking.nix
     ../../modules/program-groups/media.nix
     ../../modules/program-groups/office.nix
-    ../../modules/programs/lemurs.nix
+    # ../../modules/programs/lemurs.nix
+    ../../modules/tweaks/autologin.nix
   ];
 
   services.logind.lidSwitch = "ignore";
