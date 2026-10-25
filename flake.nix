@@ -56,6 +56,7 @@
         { name = "gh-runner"; }
         { name = "minecraft-server"; }
         { name = "oci-primary"; system = "aarch64-linux"; }
+        { name = "meltop"; }
       ];
     in
     {
