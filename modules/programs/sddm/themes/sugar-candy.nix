@@ -39,8 +39,9 @@ let
   };
 in
 {
+  imports = [ ../default.nix ];
+
   services.displayManager.sddm = {
-    enable = true;
     theme = "sugar-candy";
     extraPackages = with pkgs.kdePackages; [
       qt5compat
@@ -49,6 +50,4 @@ in
   };
 
   environment.systemPackages = [ sugarCandy ];
-
-  win.displayManager = "sddm";
 }

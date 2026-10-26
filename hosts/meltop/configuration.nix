@@ -22,7 +22,7 @@
     ../../modules/program-groups/media.nix
     ../../modules/program-groups/office.nix
     # ../../modules/programs/lemurs.nix
-    ../../modules/programs/sddm.nix
+    ../../modules/programs/sddm/themes/ii-sddm-theme.nix
   ];
 
   services.logind.lidSwitch = "ignore";
