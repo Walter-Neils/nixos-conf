@@ -15,6 +15,7 @@
     ../../modules/program-groups/networking.nix
     ../../modules/program-groups/game-emulators.nix
     ../../modules/program-groups/local-ai.nix
+    ../../modules/programs/greetd.nix
     ../../modules/tweaks/autologin.nix
     ../../modules/tweaks/auto-update.nix
     ../../modules/program-groups/gaming.nix

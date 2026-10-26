@@ -13,7 +13,8 @@
     };
     command = lib.mkOption {
       type = lib.types.str;
-      description = "A command which starts a session";
+      default = "";
+      description = "A command which starts a session, used by command-based display managers such as greetd.";
     };
   };
 }

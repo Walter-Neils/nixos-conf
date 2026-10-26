@@ -29,6 +29,8 @@
       inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
+  services.displayManager.defaultSession = lib.mkDefault "hyprland";
+
   system.userActivationScripts = {
     updateHyprlandLuarc.text = ''
       LUARC_PATH="$XDG_CONFIG_HOME/hypr/.luarc.json"

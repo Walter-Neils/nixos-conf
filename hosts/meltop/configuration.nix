@@ -22,7 +22,7 @@
     ../../modules/program-groups/media.nix
     ../../modules/program-groups/office.nix
     # ../../modules/programs/lemurs.nix
-    ../../modules/tweaks/autologin.nix
+    ../../modules/programs/sddm.nix
   ];
 
   services.logind.lidSwitch = "ignore";

@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     ../../modules/users/walterineils.nix
     ../../modules/config/bluetooth.nix
+    ../../modules/programs/greetd.nix
     ../../modules/tweaks/autologin.nix
     ../../modules/tweaks/headless-streamer.nix
     ../../modules/tweaks/platformio.nix
