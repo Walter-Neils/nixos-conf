@@ -57,6 +57,7 @@
         { name = "minecraft-server"; }
         { name = "oci-primary"; system = "aarch64-linux"; }
         { name = "meltop"; }
+        { name = "portable"; }
       ];
     in
     {
