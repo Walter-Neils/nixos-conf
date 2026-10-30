@@ -55,6 +55,7 @@
         { name = "win-worktop"; }
         { name = "gh-runner"; }
         { name = "minecraft-server"; }
+        { name = "ventry-nas"; }
         { name = "oci-primary"; system = "aarch64-linux"; }
         { name = "meltop"; }
         { name = "portable"; }
