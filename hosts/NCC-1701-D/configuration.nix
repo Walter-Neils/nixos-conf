@@ -11,9 +11,9 @@
     ./hardware-configuration.nix
     ../../modules/users/walterineils.nix
     ../../modules/config/bluetooth.nix
+    ../../modules/config/game-share.nix
     ../../modules/programs/greetd.nix
     ../../modules/tweaks/autologin.nix
-    ../../modules/tweaks/headless-streamer.nix
     ../../modules/tweaks/platformio.nix
     ../../modules/program-groups/cryptography.nix
     ../../modules/program-groups/game-emulators.nix
@@ -39,6 +39,10 @@
     ../../modules/program-groups/office.nix
   ];
 
+
+  # Export /mnt/bulkgames to the laptop over the tailnet (see
+  # modules/config/game-share.nix for what is shared and why).
+  win.gameShare.server.enable = true;
 
   virtualisation.vmVariant = {
     # For faster boot, avoid waiting for ARP on the virtual NIC.

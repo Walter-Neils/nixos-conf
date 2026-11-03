@@ -8,6 +8,7 @@
 {
   imports = [
     ../../modules/users/walterineils.nix
+    ../../modules/config/game-share.nix
     ./hardware-configuration.nix
     ../../modules/programs/hyprland.nix
     ../../modules/graphics/intel.nix
@@ -49,6 +50,11 @@
     SUBSYSTEM=="usb", ATTR{idVendor}=="1bbb", MODE="0666", GROUP="plugdev"
     SUBSYSTEM=="usb", ATTR{idVendor}=="0b05", MODE="0666", GROUP="plugdev"
   '';
+
+  # Mount the desktop's /mnt/bulkgames over the tailnet on first access, and
+  # link the shared Lutris library out of it (see
+  # modules/config/game-share.nix).
+  win.gameShare.client.enable = true;
 
   hardware.bluetooth.enable = true;
   services.pipewire.wireplumber.extraConfig = {
