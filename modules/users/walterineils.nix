@@ -29,6 +29,7 @@
       "render"
       "pipewire"
       "libvirtd"
+      "input"
     ];
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [

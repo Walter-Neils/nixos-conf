@@ -8,6 +8,8 @@
 {
   programs.steam.enable = true;
   programs.steam.remotePlay.openFirewall = true;
+  hardware.steam-hardware-enable = true;
+  services.udev.packages = [ pkgs.game-devices-udev-rules ];
 
   systemd.user.services.steam = {
     description = "Steam Client";
