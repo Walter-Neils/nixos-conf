@@ -15,6 +15,7 @@
     ../../modules/tweaks/autologin.nix
     ../../modules/tweaks/headless-streamer.nix
     ../../modules/tweaks/platformio.nix
+    ../../modules/program-groups/cli.nix
     ../../modules/program-groups/cryptography.nix
     ../../modules/program-groups/game-emulators.nix
     ../../modules/program-groups/desktop.nix

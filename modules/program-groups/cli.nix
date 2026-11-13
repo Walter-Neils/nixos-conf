@@ -22,5 +22,7 @@
     bat
     ripgrep
     btop
+    taskwarrior3
+    taskwarrior-tui
   ];
 }
