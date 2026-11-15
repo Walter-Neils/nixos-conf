@@ -24,5 +24,7 @@
     btop
     taskwarrior3
     taskwarrior-tui
+    libeatmydata
+    pkgsi686Linux.libeatmydata
   ];
 }
