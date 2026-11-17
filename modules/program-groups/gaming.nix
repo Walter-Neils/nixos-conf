@@ -15,6 +15,7 @@
     ../programs/protonup-qt.nix
     ../programs/protontricks.nix
     ../programs/amethyst.nix
+    ../programs/dlss5nr.nix
     ../programs/gamescope.nix
   ];
 
