@@ -20,6 +20,7 @@
     ./programs/git.nix
     ./programs/atd.nix
     ./programs/kmscon.nix
+    ./tweaks/cachyos-kernel.nix
   ];
 
   nix.settings.experimental-features = [

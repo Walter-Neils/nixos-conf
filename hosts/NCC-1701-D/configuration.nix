@@ -40,6 +40,12 @@
     ../../modules/program-groups/office.nix
   ];
 
+  # CachyOS BORE + ThinLTO kernel built for x86_64-v3 (AVX2).
+  win.cachyosKernel = {
+    enable = true;
+    variant = "linuxPackages-cachyos-bore-lto-x86_64-v3";
+  };
+
 
   virtualisation.vmVariant = {
     # For faster boot, avoid waiting for ARP on the virtual NIC.

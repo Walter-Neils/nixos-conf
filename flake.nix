@@ -3,6 +3,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    # Opted into per host via `win.cachyosKernel` (modules/tweaks/cachyos-kernel.nix).
+    # `release` branch = latest version already built and in the upstream cache.
+    # Do not override its nixpkgs input; that breaks patch/kernel version matching.
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     hyprland.url = "github:hyprwm/Hyprland?ref=main";
     caelestia-shell = {
